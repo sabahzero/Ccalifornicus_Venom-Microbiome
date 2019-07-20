@@ -1,0 +1,483 @@
+#SampleID	Plate	Primer	plate_barcode	Sample_Name	Group	Category	Type	Location	Depth_PSI	Year	Season	Time	Treatment	Proteomic_Data	Metabolomic_Data
+SUH001	micags	18S	TTAACGGCTGA	w_A1		Water									
+SUH002	micags	18S	ACGCTATCTGG	w_A2		Water									
+SUH003	micags	18S	AAGTGGACTCT	w_A3		Water									
+SUH004	micags	18S	CACATTGTGAG	w_A4		Water									
+SUH005	micags	18S	CGATGTCGTCA	w_B1		Water									
+SUH006	micags	18S	GCACGTTCTAA	w_B2		Water									
+SUH007	micags	18S	TAAGGCCTATC	w_B3		Water									
+SUH008	micags	18S	CCTGGATATAG	w_B4		Water									
+SUH009	micags	18S	CTTGCTGAAGA	w_C1		Water									
+SUH010	micags	18S	ACACGGTGTCT	w_C2		Water									
+SUH011	micags	18S	CTAGTCAGCTG	w_C3		Water									
+SUH012	micags	18S	TAGGCCGACTT	w_C4		Water									
+SUH013	micags	18S	TAGTCAGGCCA	s_A2		Sediment									
+SUH014	micags	18S	CGGTACTTGCA	s_A3		Sediment									
+SUH015	micags	18S	CAGCTTACTAG	s_A4		Sediment									
+SUH016	micags	18S	CAGTGATCCTA	s_B1		Sediment									
+SUH017	micags	18S	CGGACGTTCAT	s_B2		Sediment									
+SUH018	micags	18S	ATGACCATCGT	s_B4		Sediment									
+SUH019	micags	18S	TCTAAGGCACG	s_C1		Sediment									
+SUH020	micags	18S	GACGCTAGTTC	s_C2		Sediment									
+SUH021	micags	18S	GTCCGCTGAAT	s_C3		Sediment									
+SUH022	micags	18S	GTACGAATCCT	c_v1		Host									
+SUH023	micags	18S	TCCTAGCAGTG	c_v2		Host									
+SUH024	micags	18S	CACGTGACATG	c_v3		Host									
+SUH025	micags	18S	CTTCGGCAGAA	c_v4		Host									
+SUH026	micags	18S	CATCAGCGTGT	c_v5		Host									
+SUH027	micags	18S	CCAGTGTATGC	c_v6		Host									
+SUH028	micags	18S	CAGACATTGCG	c_v7		Host									
+SUH029	micags	18S	GAATCTTCGAG	c_v8		Host									
+SUH030	micags	18S	GTAGCAACGTC	c_v9_i		Host									
+SUH031	micags	18S	ATGGCAGCTCT	c_v9_ii		Host									
+SUH032	micags	18S	TCAGAGGTTAC	c_v9_iii		Host									
+SUH033	micags	18S	TCGCATGAAGT	c_v10		Host									
+SUH034	micags	18S	CTCAGTATGCA	c_v11		Host									
+SUH035	micags	18S	AGCGATGCCTT	c_v12		Host									
+SUH036	micags	18S	TGCGCGAATAC	c_v13		Host									
+SUH037	micags	18S	CGTATCTGCGA	c_v14		Host									
+SUH038	micags	18S	TTCAACAGGTG	c_v15		Host									
+SUH039	micags	18S	TGCTACCATGA	c_v16		Host									
+SUH040	micags	18S	GGTCCAACTAG	c_v17		Host									
+SUH041	micags	18S	TGAATAGTCCG	c_v18		Host									
+SUH042	micags	18S	GCCTTAAGCGA	c_v19		Host									
+SUH043	micags	18S	GATACGTCCTG	c_v20		Host									
+SUH044	micags	18S	GTCCAGTAATG	c_v21		Host									
+SUH045	micags	18S	GAGTTCCATAG	c_v22		Host									
+SUH046	micags	18S	GGTTGCACAAT	c_v23		Host									
+SUH047	micags	18S	CATCATGAGGC	c_v24		Host									
+SUH048	micags	18S	TCCACAGGAGT	c_h13		Host									
+SUH049	micags	18S	AGGAGCCTTCT	c_h14		Host									
+SUH050	micags	18S	ATGCGAGTATC	c_h15		Host									
+SUH051	micags	18S	CTACAATGTCG	c_h16		Host									
+SUH052	micags	18S	TTAGCGTCACG	c_h17		Host									
+SUH053	micags	18S	GACTTATAGGC	c_h18		Host									
+SUH054	micags	18S	CATGAGTGCTA	c_h19		Host									
+SUH055	micags	18S	ACGACGTCTTA	c_h20		Host									
+SUH056	micags	18S	CAATTGTGCAC	c_e21		Host									
+SUH057	micags	18S	GAAGTCTCGCA	c_e23		Host									
+SUH058	micags	18S	ACATCTTGACG	c_e24		Host									
+SUH059	micags	16S_V45	AGCGTGTCCAA	w_sterile		Water									
+SUH060	micags	16S_V45	GTATCCATGCG	w_day3_1		Water									
+SUH061	micags	16S_V45	AACAGGTTCGC	w_day3_2		Water									
+SUH062	micags	16S_V45	ACTGTCGAAGC	w_day3_3		Water									
+SUH063	micags	16S_V45	TTAACGGCTGA	w_A1		Water									
+SUH064	micags	16S_V45	ACGCTATCTGG	w_A2		Water									
+SUH065	micags	16S_V45	AAGTGGACTCT	w_A3		Water									
+SUH066	micags	16S_V45	CACATTGTGAG	w_A4		Water									
+SUH067	micags	16S_V45	CGATGTCGTCA	w_B1		Water									
+SUH068	micags	16S_V45	GCACGTTCTAA	w_B2		Water									
+SUH069	micags	16S_V45	TAAGGCCTATC	w_B3		Water									
+SUH070	micags	16S_V45	CCTGGATATAG	w_B4		Water									
+SUH071	micags	16S_V45	CTTGCTGAAGA	w_C1		Water									
+SUH072	micags	16S_V45	ACACGGTGTCT	w_C2		Water									
+SUH073	micags	16S_V45	CTAGTCAGCTG	w_C3		Water									
+SUH074	micags	16S_V45	TAGGCCGACTT	w_C4		Water									
+SUH075	micags	16S_V45	CTTCTAAGGAG	s_A1		Sediment									
+SUH076	micags	16S_V45	TAGTCAGGCCA	s_A2		Sediment									
+SUH077	micags	16S_V45	CGGTACTTGCA	s_A3		Sediment									
+SUH078	micags	16S_V45	CAGCTTACTAG	s_A4		Sediment									
+SUH079	micags	16S_V45	CAGTGATCCTA	s_B1		Sediment									
+SUH080	micags	16S_V45	CGGACGTTCAT	s_B2		Sediment									
+SUH081	micags	16S_V45	ATGACCATCGT	s_B4		Sediment									
+SUH082	micags	16S_V45	TCTAAGGCACG	s_C1		Sediment									
+SUH083	micags	16S_V45	GACGCTAGTTC	s_C2		Sediment									
+SUH084	micags	16S_V45	GTCCGCTGAAT	s_C3		Sediment									
+SUH085	micags	16S_V45	TGGCACCGATT	s_C4		Sediment									
+SUH086	micags	16S_V45	GTACGAATCCT	c_v1		Host									
+SUH087	micags	16S_V45	TCCTAGCAGTG	c_v2		Host									
+SUH088	micags	16S_V45	CACGTGACATG	c_v3		Host									
+SUH089	micags	16S_V45	CTTCGGCAGAA	c_v4		Host									
+SUH090	micags	16S_V45	CATCAGCGTGT	c_v5		Host									
+SUH091	micags	16S_V45	CCAGTGTATGC	c_v6		Host									
+SUH092	micags	16S_V45	CAGACATTGCG	c_v7		Host									
+SUH093	micags	16S_V45	GAATCTTCGAG	c_v8		Host									
+SUH094	micags	16S_V45	GTAGCAACGTC	c_v9_i		Host									
+SUH095	micags	16S_V45	ATGGCAGCTCT	c_v9_ii		Host									
+SUH096	micags	16S_V45	TCAGAGGTTAC	c_v9_iii		Host									
+SUH097	micags	16S_V45	TCGCATGAAGT	c_v10		Host									
+SUH098	micags	16S_V45	CTCAGTATGCA	c_v11		Host									
+SUH099	micags	16S_V45	AGCGATGCCTT	c_v12		Host									
+SUH100	micags	16S_V45	TGCGCGAATAC	c_v13		Host									
+SUH101	micags	16S_V45	CGTATCTGCGA	c_v14		Host									
+SUH102	micags	16S_V45	TTCAACAGGTG	c_v15		Host									
+SUH103	micags	16S_V45	TGCTACCATGA	c_v16		Host									
+SUH104	micags	16S_V45	GGTCCAACTAG	c_v17		Host									
+SUH105	micags	16S_V45	TGAATAGTCCG	c_v18		Host									
+SUH106	micags	16S_V45	GCCTTAAGCGA	c_v19		Host									
+SUH107	micags	16S_V45	GATACGTCCTG	c_v20		Host									
+SUH108	micags	16S_V45	GTCCAGTAATG	c_v21		Host									
+SUH109	micags	16S_V45	GAGTTCCATAG	c_v22		Host									
+SUH110	micags	16S_V45	GGTTGCACAAT	c_v23		Host									
+SUH111	micags	16S_V45	CATCATGAGGC	c_v24		Host									
+SUH112	micags	16S_V45	TCCACAGGAGT	c_h13		Host									
+SUH113	micags	16S_V45	AGGAGCCTTCT	c_h14		Host									
+SUH114	micags	16S_V45	ATGCGAGTATC	c_h15		Host									
+SUH115	micags	16S_V45	CTACAATGTCG	c_h16		Host									
+SUH116	micags	16S_V45	TTAGCGTCACG	c_h17		Host									
+SUH117	micags	16S_V45	GACTTATAGGC	c_h18		Host									
+SUH118	micags	16S_V45	CATGAGTGCTA	c_h19		Host									
+SUH119	micags	16S_V45	ACGACGTCTTA	c_h20		Host									
+SUH120	micags	16S_V45	CAATTGTGCAC	c_e21		Host									
+SUH121	micags	16S_V45	ATCGGCGTTAC	c_e22		Host									
+SUH122	micags	16S_V45	GAAGTCTCGCA	c_e23		Host									
+SUH123	micags	16S_V45	ACATCTTGACG	c_e24		Host									
+SUH124	Venmic_1	18S	TAAGGCCTATC	EB_Buffer_Control_1	4	Control	Control-Buffer	Control-Buffer	15	Control-Buffer	Control-Buffer	Control	Control-Buffer	No	No
+SUH125	Venmic_1	18S	GTACGAATCCT	MX_0_5_km_SU_16_Gland_1	11	Host	Gland_Whole	Puerto-Nuevo_0.15km	15	2016	Summer	Sum-2016	Wildtype	Yes	No
+SUH126	Venmic_1	18S	CTCAGTATGCA	MX_0_5_km_SU_16_Gland_2	11	Host	Gland_Whole	Puerto-Nuevo_0.15km	15	2016	Summer	Sum-2016	Wildtype	Yes	No
+SUH127	Venmic_1	18S	GGTTGCACAAT	MX_0_5_km_SU_16_Gland_3	11	Host	Gland_Whole	Puerto-Nuevo_0.15km	15	2016	Summer	Sum-2016	Wildtype	Yes	No
+SUH128	Venmic_1	18S	ATCGGCGTTAC	MX_0_5_km_SU_16_Gland_4	11	Host	Gland_Whole	Puerto-Nuevo_0.15km	15	2016	Summer	Sum-2016	Wildtype	Yes	No
+SUH129	Venmic_1	18S	CGATGTCGTCA	MX_0_5_km_SU_16_Gland_5	11	Host	Gland_Whole	Puerto-Nuevo_0.15km	15	2016	Summer	Sum-2016	Wildtype	Yes	No
+SUH130	Venmic_1	18S	CAATTGTGCAC	MX_0_5_km_SU_17_Gland_1	14	Host	Gland_Whole	Puerto-Nuevo_0.15km	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH131	Venmic_1	18S	CACATTGTGAG	MX_0_5_km_SU_17_Gland_2	14	Host	Gland_Whole	Puerto-Nuevo_0.15km	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH132	Venmic_1	18S	CGGTACTTGCA	MX_0_5_km_SU_17_Gland_3	14	Host	Gland_Whole	Puerto-Nuevo_0.15km	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH133	Venmic_1	18S	TCGCTGTAACA	MX_0_5_km_SU_17_Gland_4	14	Host	Gland_Whole	Puerto-Nuevo_0.15km	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH134	Venmic_1	18S	CTTGTAGGACC	MX_0_5_km_SU_17_Gland_5	14	Host	Gland_Whole	Puerto-Nuevo_0.15km	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH135	Venmic_1	18S	TACAGATGGCT	MX_0_5_km_WI_16_1_Gland_1	16	Host	Gland_Whole	Puerto-Nuevo_0.15km	15	2017	Winter	Win-2016-Day1	Wildtype	Yes	No
+SUH136	Venmic_1	18S	CACGTGACATG	MX_0_5_km_WI_16_1_Gland_2	16	Host	Gland_Whole	Puerto-Nuevo_0.15km	15	2017	Winter	Win-2016-Day1	Wildtype	Yes	No
+SUH137	Venmic_1	18S	TGCGCGAATAC	MX_0_5_km_WI_16_1_Gland_3	16	Host	Gland_Whole	Puerto-Nuevo_0.15km	15	2017	Winter	Win-2016-Day1	Wildtype	Yes	No
+SUH138	Venmic_1	18S	TCCACAGGAGT	MX_0_5_km_WI_16_1_Gland_4	16	Host	Gland_Whole	Puerto-Nuevo_0.15km	15	2017	Winter	Win-2016-Day1	Wildtype	Yes	No
+SUH139	Venmic_1	18S	ACATCTTGACG	MX_0_5_km_WI_16_1_Gland_5	16	Host	Gland_Whole	Puerto-Nuevo_0.15km	15	2017	Winter	Win-2016-Day1	Wildtype	Yes	No
+SUH140	Venmic_1	18S	CGGACGTTCAT	MX_0_5_km_WI_16_2_Gland_1	18	Host	Gland_Whole	Puerto-Nuevo_0.15km	15	2017	Winter	Win-2016-Day2	Wildtype	Yes	No
+SUH141	Venmic_1	18S	CTCTAAGCATG	MX_0_5_km_WI_16_2_Gland_2	18	Host	Gland_Whole	Puerto-Nuevo_0.15km	15	2017	Winter	Win-2016-Day2	Wildtype	Yes	No
+SUH142	Venmic_1	18S	TTCATACGGAC	MX_0_5_km_WI_16_2_Gland_3	18	Host	Gland_Whole	Puerto-Nuevo_0.15km	15	2017	Winter	Win-2016-Day2	Wildtype	Yes	No
+SUH143	Venmic_1	18S	CTTCGGCAGAA	MX_0_5_km_WI_16_2_Gland_4	18	Host	Gland_Whole	Puerto-Nuevo_0.15km	15	2017	Winter	Win-2016-Day2	Wildtype	Yes	No
+SUH144	Venmic_1	18S	CGTATCTGCGA	MX_0_5_km_WI_16_2_Gland_5	18	Host	Gland_Whole	Puerto-Nuevo_0.15km	15	2017	Winter	Win-2016-Day2	Wildtype	Yes	No
+SUH145	Venmic_1	18S	CAGCTTACTAG	MX_0_km_SU_17_Gland_1	22	Host	Gland_Whole	Puerto-Nuevo_0km	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH146	Venmic_1	18S	CCAGATGATCG	MX_0_km_SU_17_Gland_2	22	Host	Gland_Whole	Puerto-Nuevo_0km	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH147	Venmic_1	18S	ACTGTACGCGT	MX_0_km_SU_17_Gland_3	22	Host	Gland_Whole	Puerto-Nuevo_0km	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH148	Venmic_1	18S	TCCTAGCAGTG	MX_0_km_SU_17_Gland_4	22	Host	Gland_Whole	Puerto-Nuevo_0km	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH149	Venmic_1	18S	AGCGATGCCTT	MX_0_km_SU_17_Gland_5	22	Host	Gland_Whole	Puerto-Nuevo_0km	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH150	Venmic_1	18S	CATCATGAGGC	MX_1_5_km_SU_17_Gland_1	24	Host	Gland_Whole	Puerto-Nuevo_0.45km	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH151	Venmic_1	18S	GAAGTCTCGCA	MX_1_5_km_SU_17_Gland_2	24	Host	Gland_Whole	Puerto-Nuevo_0.45km	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH152	Venmic_1	18S	GCACGTTCTAA	MX_1_5_km_SU_17_Gland_3	24	Host	Gland_Whole	Puerto-Nuevo_0.45km	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH153	Venmic_1	18S	CAGTGATCCTA	MX_1_5_km_SU_17_Gland_4	24	Host	Gland_Whole	Puerto-Nuevo_0.45km	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH154	Venmic_1	18S	TAGAGCCGTTA	MX_1_5_km_SU_17_Gland_5	24	Host	Gland_Whole	Puerto-Nuevo_0.45km	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH155	Venmic_1	18S	TCAGAGGTTAC	Monterey_SU_17_Gland_1	9	Host	Gland_Whole	Monterey	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH156	Venmic_1	18S	GTCCAGTAATG	Monterey_SU_17_Gland_2	9	Host	Gland_Whole	Monterey	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH157	Venmic_1	18S	ACGACGTCTTA	Monterey_SU_17_Gland_3	9	Host	Gland_Whole	Monterey	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH158	Venmic_1	18S	AAGTGGACTCT	Monterey_SU_17_Gland_4	9	Host	Gland_Whole	Monterey	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH159	Venmic_1	18S	TAGTCAGGCCA	Monterey_SU_17_Gland_5	9	Host	Gland_Whole	Monterey	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH160	Venmic_1	18S	CTACAATGTCG	SD_Sum_17_100_PSI_Gland_1	29	Host	Gland_Whole	San-Diego	100	2017	Summer	Sum-2017	Captive-100PSI	Yes	No
+SUH161	Venmic_1	18S	AACAGGTTCGC	SD_Sum_17_100_PSI_Gland_2	29	Host	Gland_Whole	San-Diego	100	2017	Summer	Sum-2017	Captive-100PSI	Yes	No
+SUH162	Venmic_1	18S	ACACGGTGTCT	SD_Sum_17_100_PSI_Gland_3	29	Host	Gland_Whole	San-Diego	100	2017	Summer	Sum-2017	Captive-100PSI	Yes	No
+SUH163	Venmic_1	18S	GACGCTAGTTC	SD_Sum_17_100_PSI_Gland_4	29	Host	Gland_Whole	San-Diego	100	2017	Summer	Sum-2017	Captive-100PSI	Yes	No
+SUH164	Venmic_1	18S	GATAGTGCCAC	SD_Sum_17_100_PSI_Gland_5	29	Host	Gland_Whole	San-Diego	100	2017	Summer	Sum-2017	Captive-100PSI	Yes	No
+SUH165	Venmic_1	18S	CCAGTGTATGC	SD_Sum_17_150mg_L_TC_Gland_1	31	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-TCC	Yes	Yes
+SUH166	Venmic_1	18S	TGCTACCATGA	SD_Sum_17_150mg_L_TC_Gland_2	31	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-TCC	Yes	Yes
+SUH167	Venmic_1	18S	ATGCGAGTATC	SD_Sum_17_150mg_L_TC_Gland_3	31	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-TCC	Yes	Yes
+SUH168	Venmic_1	18S	GTATCCATGCG	SD_Sum_17_150mg_L_TC_Gland_4	31	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-TCC	Yes	Yes
+SUH169	Venmic_1	18S	CTTGCTGAAGA	SD_Sum_17_150mg_L_TC_Gland_5	31	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-TCC	Yes	Yes
+SUH170	Venmic_1	18S	TCTAAGGCACG	SD_Sum_17_1_atm_Gland_1	27	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-15PSI	Yes	No
+SUH171	Venmic_1	18S	AGGCGACCTTA	SD_Sum_17_1_atm_Gland_2	27	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-15PSI	Yes	No
+SUH172	Venmic_1	18S	TCAGGCGCTTA	SD_Sum_17_1_atm_Gland_3	27	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-15PSI	Yes	No
+SUH173	Venmic_1	18S	CAGACATTGCG	SD_Sum_17_1_atm_Gland_4	27	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-15PSI	Yes	No
+SUH174	Venmic_1	18S	GGTCCAACTAG	SD_Sum_17_1_atm_Gland_5	27	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-15PSI	Yes	No
+SUH175	Venmic_1	18S	ATACTTCGCAG	SD_Sum_17_300_PSI_Gland_1	33	Host	Gland_Whole	San-Diego	300	2017	Summer	Sum-2017	Captive-300PSI	Yes	No
+SUH176	Venmic_1	18S	GAATCTTCGAG	SD_Sum_17_300_PSI_Gland_2	33	Host	Gland_Whole	San-Diego	300	2017	Summer	Sum-2017	Captive-300PSI	Yes	No
+SUH177	Venmic_1	18S	TGAATAGTCCG	SD_Sum_17_300_PSI_Gland_3	33	Host	Gland_Whole	San-Diego	300	2017	Summer	Sum-2017	Captive-300PSI	Yes	No
+SUH178	Venmic_1	18S	TTAGCGTCACG	SD_Sum_17_300_PSI_Gland_4	33	Host	Gland_Whole	San-Diego	300	2017	Summer	Sum-2017	Captive-300PSI	Yes	No
+SUH179	Venmic_1	18S	ACTGTCGAAGC	SD_Sum_17_300_PSI_Gland_5	33	Host	Gland_Whole	San-Diego	300	2017	Summer	Sum-2017	Captive-300PSI	Yes	No
+SUH180	Venmic_1	18S	CTAGTCAGCTG	SD_Sum_17_Prey__10min_1	35	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-Prey10min	Yes	No
+SUH181	Venmic_1	18S	GTCCGCTGAAT	SD_Sum_17_Prey__10min_2	35	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-Prey10min	Yes	No
+SUH182	Venmic_1	18S	GAACACTTCTG	SD_Sum_17_Prey__10min_3	35	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-Prey10min	Yes	No
+SUH183	Venmic_1	18S	TGTCGGCTACA	SD_Sum_17_Prey__10min_4	35	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-Prey10min	Yes	No
+SUH184	Venmic_1	18S	GTAGCAACGTC	SD_Sum_17_Prey__10min_5	35	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-Prey10min	Yes	No
+SUH185	Venmic_1	18S	AGCGTGTCCAA	SD_Sum_17_Sterile_Gland_1	5	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-Sterile	Yes	Yes
+SUH186	Venmic_1	18S	CCTGGATATAG	SD_Sum_17_Sterile_Gland_2	5	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-Sterile	Yes	Yes
+SUH187	Venmic_1	18S	ATGACCATCGT	SD_Sum_17_Sterile_Gland_3	5	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-Sterile	Yes	Yes
+SUH188	Venmic_1	18S	GCATGGCTCTA	SD_Sum_17_Sterile_Gland_4	5	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-Sterile	Yes	Yes
+SUH189	Venmic_1	18S	TTGAACCAGCT	SD_Sum_17_Sterile_Gland_5	5	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-Sterile	Yes	Yes
+SUH190	Venmic_1	18S	GCCTTAAGCGA	SD_Sum_17_WT_Bulb_1	38	Host	Gland_Bulb	San-Diego	15	2017	Summer	Sum-2017	Captive-Wildtype	Yes	Yes
+SUH191	Venmic_1	18S	GACTTATAGGC	SD_Sum_17_WT_Bulb_2	38	Host	Gland_Bulb	San-Diego	15	2017	Summer	Sum-2017	Captive-Wildtype	Yes	Yes
+SUH192	Venmic_1	18S	TTAACGGCTGA	SD_Sum_17_WT_Bulb_3	38	Host	Gland_Bulb	San-Diego	15	2017	Summer	Sum-2017	Captive-Wildtype	Yes	Yes
+SUH193	Venmic_1	18S	TAGGCCGACTT	SD_Sum_17_WT_Bulb_4	38	Host	Gland_Bulb	San-Diego	15	2017	Summer	Sum-2017	Captive-Wildtype	Yes	Yes
+SUH194	Venmic_1	18S	TGGCACCGATT	SD_Sum_17_WT_Bulb_5	38	Host	Gland_Bulb	San-Diego	15	2017	Summer	Sum-2017	Captive-Wildtype	Yes	Yes
+SUH195	Venmic_1	18S	ACGCTATCTGG	SD_Sum_17_WT_Distal_Duct_1	39	Host	Gland_Distal	San-Diego	15	2017	Summer	Sum-2017	Captive-Wildtype	Yes	Yes
+SUH196	Venmic_1	18S	CTTCTAAGGAG	SD_Sum_17_WT_Distal_Duct_2	39	Host	Gland_Distal	San-Diego	15	2017	Summer	Sum-2017	Captive-Wildtype	Yes	Yes
+SUH197	Venmic_1	18S	ATTCATGGACG	SD_Sum_17_WT_Distal_Duct_3	39	Host	Gland_Distal	San-Diego	15	2017	Summer	Sum-2017	Captive-Wildtype	Yes	Yes
+SUH198	Venmic_1	18S	TCTGGAACGCT	SD_Sum_17_WT_Distal_Duct_4	39	Host	Gland_Distal	San-Diego	15	2017	Summer	Sum-2017	Captive-Wildtype	Yes	Yes
+SUH199	Venmic_1	18S	GCCGCTTAATA	SD_Sum_17_WT_Distal_Duct_5	39	Host	Gland_Distal	San-Diego	15	2017	Summer	Sum-2017	Captive-Wildtype	Yes	Yes
+SUH200	Venmic_1	18S	TTGTCGCACAA	SD_Sum_17_WT_Gland_1	42	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-Wildtype	Yes	Yes
+SUH201	Venmic_1	18S	AACTGTGCGTA	SD_Sum_17_WT_Gland_2	42	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-Wildtype	Yes	Yes
+SUH202	Venmic_1	18S	TGCGAACGTAT	SD_Sum_17_WT_Gland_3	42	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-Wildtype	Yes	Yes
+SUH203	Venmic_1	18S	CATCAGCGTGT	SD_Sum_17_WT_Gland_4	42	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-Wildtype	Yes	Yes
+SUH204	Venmic_1	18S	TTCAACAGGTG	SD_Sum_17_WT_Gland_5	42	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-Wildtype	Yes	Yes
+SUH205	Venmic_1	18S	TACCGCTAGTA	SD_Sum_17_WT_Proximal_Duct_1	45	Host	Gland_Proximal	San-Diego	15	2017	Summer	Sum-2017	Captive-Wildtype	Yes	Yes
+SUH206	Venmic_1	18S	TGGCTCTACAG	SD_Sum_17_WT_Proximal_Duct_2	45	Host	Gland_Proximal	San-Diego	15	2017	Summer	Sum-2017	Captive-Wildtype	Yes	Yes
+SUH207	Venmic_1	18S	ATGGCAGCTCT	SD_Sum_17_WT_Proximal_Duct_3	45	Host	Gland_Proximal	San-Diego	15	2017	Summer	Sum-2017	Captive-Wildtype	Yes	Yes
+SUH208	Venmic_1	18S	GATACGTCCTG	SD_Sum_17_WT_Proximal_Duct_4	45	Host	Gland_Proximal	San-Diego	15	2017	Summer	Sum-2017	Captive-Wildtype	Yes	Yes
+SUH209	Venmic_1	18S	CATGAGTGCTA	SD_Sum_17_WT_Proximal_Duct_5	45	Host	Gland_Proximal	San-Diego	15	2017	Summer	Sum-2017	Captive-Wildtype	Yes	Yes
+SUH210	Venmic_1	18S	AGGCATCTTAC	San_Diego_SU_17_Gland_1	26	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH211	Venmic_1	18S	GGTATGACTCA	San_Diego_SU_17_Gland_2	26	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH212	Venmic_1	18S	GTTACCTCAGA	San_Diego_SU_17_Gland_3	26	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH213	Venmic_1	18S	TCGCATGAAGT	San_Diego_SU_17_Gland_4	26	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH214	Venmic_1	18S	GAGTTCCATAG	San_Diego_SU_17_Gland_5	26	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH215	Venmic_1	16S_V4	ACTGATACATG	EB_Buffer_Control_1	4	Control	Control-Buffer	Control-Buffer	15	Control-Buffer	Control-Buffer	Control	Control-Buffer	No	No
+SUH216	Venmic_1	16S_V4	GCTACGTGCAC	MX_0_5_km_SU_16_Gland_1	11	Host	Gland_Whole	Puerto-Nuevo_0.15km	15	2016	Summer	Sum-2016	Wildtype	Yes	No
+SUH217	Venmic_1	16S_V4	CTAGTCGACGA	MX_0_5_km_SU_16_Gland_2	11	Host	Gland_Whole	Puerto-Nuevo_0.15km	15	2016	Summer	Sum-2016	Wildtype	Yes	No
+SUH218	Venmic_1	16S_V4	CAGATCTGACA	MX_0_5_km_SU_16_Gland_3	11	Host	Gland_Whole	Puerto-Nuevo_0.15km	15	2016	Summer	Sum-2016	Wildtype	Yes	No
+SUH219	Venmic_1	16S_V4	CTGACTACTCT	MX_0_5_km_SU_16_Gland_4	11	Host	Gland_Whole	Puerto-Nuevo_0.15km	15	2016	Summer	Sum-2016	Wildtype	Yes	No
+SUH220	Venmic_1	16S_V4	CTAGACTGATG	MX_0_5_km_SU_16_Gland_5	11	Host	Gland_Whole	Puerto-Nuevo_0.15km	15	2016	Summer	Sum-2016	Wildtype	Yes	No
+SUH221	Venmic_1	16S_V4	TAGCGTACTCT	MX_0_5_km_SU_17_Gland_1	14	Host	Gland_Whole	Puerto-Nuevo_0.15km	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH222	Venmic_1	16S_V4	CACAGACTATG	MX_0_5_km_SU_17_Gland_2	14	Host	Gland_Whole	Puerto-Nuevo_0.15km	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH223	Venmic_1	16S_V4	TAGTCGATACG	MX_0_5_km_SU_17_Gland_3	14	Host	Gland_Whole	Puerto-Nuevo_0.15km	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH224	Venmic_1	16S_V4	CGCATGATCAG	MX_0_5_km_SU_17_Gland_4	14	Host	Gland_Whole	Puerto-Nuevo_0.15km	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH225	Venmic_1	16S_V4	TACATAGTCGC	MX_0_5_km_SU_17_Gland_5	14	Host	Gland_Whole	Puerto-Nuevo_0.15km	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH226	Venmic_1	16S_V4	GCACGTATAGC	MX_0_5_km_WI_16_1_Gland_1	16	Host	Gland_Whole	Puerto-Nuevo_0.15km	15	2017	Winter	Win-2016-Day1	Wildtype	Yes	No
+SUH227	Venmic_1	16S_V4	CGCGCAGTGTA	MX_0_5_km_WI_16_1_Gland_2	16	Host	Gland_Whole	Puerto-Nuevo_0.15km	15	2017	Winter	Win-2016-Day1	Wildtype	Yes	No
+SUH228	Venmic_1	16S_V4	CGCACATCAGA	MX_0_5_km_WI_16_1_Gland_3	16	Host	Gland_Whole	Puerto-Nuevo_0.15km	15	2017	Winter	Win-2016-Day1	Wildtype	Yes	No
+SUH229	Venmic_1	16S_V4	GTCACGACACA	MX_0_5_km_WI_16_1_Gland_4	16	Host	Gland_Whole	Puerto-Nuevo_0.15km	15	2017	Winter	Win-2016-Day1	Wildtype	Yes	No
+SUH230	Venmic_1	16S_V4	AGAGCATATCT	MX_0_5_km_WI_16_1_Gland_5	16	Host	Gland_Whole	Puerto-Nuevo_0.15km	15	2017	Winter	Win-2016-Day1	Wildtype	Yes	No
+SUH231	Venmic_1	16S_V4	ACGATCGCTAG	MX_0_5_km_WI_16_2_Gland_1	18	Host	Gland_Whole	Puerto-Nuevo_0.15km	15	2017	Winter	Win-2016-Day2	Wildtype	Yes	No
+SUH232	Venmic_1	16S_V4	AGATGTAGCTC	MX_0_5_km_WI_16_2_Gland_2	18	Host	Gland_Whole	Puerto-Nuevo_0.15km	15	2017	Winter	Win-2016-Day2	Wildtype	Yes	No
+SUH233	Venmic_1	16S_V4	GCGACTCGAGC	MX_0_5_km_WI_16_2_Gland_3	18	Host	Gland_Whole	Puerto-Nuevo_0.15km	15	2017	Winter	Win-2016-Day2	Wildtype	Yes	No
+SUH234	Venmic_1	16S_V4	CGCATGTAGTA	MX_0_5_km_WI_16_2_Gland_4	18	Host	Gland_Whole	Puerto-Nuevo_0.15km	15	2017	Winter	Win-2016-Day2	Wildtype	Yes	No
+SUH235	Venmic_1	16S_V4	AGTATCAGTCA	MX_0_5_km_WI_16_2_Gland_5	18	Host	Gland_Whole	Puerto-Nuevo_0.15km	15	2017	Winter	Win-2016-Day2	Wildtype	Yes	No
+SUH236	Venmic_1	16S_V4	TGACTGCATGT	MX_0_5_km_WI_16_3_Gland_1		Host									
+SUH237	Venmic_1	16S_V4	CATGAGAGACG	MX_0_km_SU_17_Gland_1	22	Host	Gland_Whole	Puerto-Nuevo_0km	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH238	Venmic_1	16S_V4	GATCAGTACAG	MX_0_km_SU_17_Gland_2	22	Host	Gland_Whole	Puerto-Nuevo_0km	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH239	Venmic_1	16S_V4	ATGTAGTGCGC	MX_0_km_SU_17_Gland_3	22	Host	Gland_Whole	Puerto-Nuevo_0km	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH240	Venmic_1	16S_V4	GACGATGACAC	MX_0_km_SU_17_Gland_4	22	Host	Gland_Whole	Puerto-Nuevo_0km	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH241	Venmic_1	16S_V4	CACTGTATAGA	MX_0_km_SU_17_Gland_5	22	Host	Gland_Whole	Puerto-Nuevo_0km	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH242	Venmic_1	16S_V4	TGTAGCTGACA	MX_1_5_km_SU_17_Gland_1	24	Host	Gland_Whole	Puerto-Nuevo_0.45km	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH243	Venmic_1	16S_V4	ACGTAGTATCT	MX_1_5_km_SU_17_Gland_2	24	Host	Gland_Whole	Puerto-Nuevo_0.45km	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH244	Venmic_1	16S_V4	TCTACGAGATG	MX_1_5_km_SU_17_Gland_3	24	Host	Gland_Whole	Puerto-Nuevo_0.45km	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH245	Venmic_1	16S_V4	CATCACTGTAG	MX_1_5_km_SU_17_Gland_4	24	Host	Gland_Whole	Puerto-Nuevo_0.45km	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH246	Venmic_1	16S_V4	CGATGAGCGTC	MX_1_5_km_SU_17_Gland_5	24	Host	Gland_Whole	Puerto-Nuevo_0.45km	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH247	Venmic_1	16S_V4	GTCGCTCATGA	Monterey_SU_17_Gland_1	9	Host	Gland_Whole	Monterey	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH248	Venmic_1	16S_V4	GATACGCTACA	Monterey_SU_17_Gland_2	9	Host	Gland_Whole	Monterey	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH249	Venmic_1	16S_V4	GATGACACAGT	Monterey_SU_17_Gland_3	9	Host	Gland_Whole	Monterey	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH250	Venmic_1	16S_V4	ACGTGATGCTG	Monterey_SU_17_Gland_4	9	Host	Gland_Whole	Monterey	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH251	Venmic_1	16S_V4	TATACGCAGCG	Monterey_SU_17_Gland_5	9	Host	Gland_Whole	Monterey	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH252	Venmic_1	16S_V4	GCTCATGTAGT	SD_Sum_17_100_PSI_Gland_1	29	Host	Gland_Whole	San-Diego	100	2017	Summer	Sum-2017	Captive-100PSI	Yes	No
+SUH253	Venmic_1	16S_V4	TAGCACGAGTG	SD_Sum_17_100_PSI_Gland_2	29	Host	Gland_Whole	San-Diego	100	2017	Summer	Sum-2017	Captive-100PSI	Yes	No
+SUH254	Venmic_1	16S_V4	AGTCTACTGCG	SD_Sum_17_100_PSI_Gland_3	29	Host	Gland_Whole	San-Diego	100	2017	Summer	Sum-2017	Captive-100PSI	Yes	No
+SUH255	Venmic_1	16S_V4	GTCTACACGAG	SD_Sum_17_100_PSI_Gland_4	29	Host	Gland_Whole	San-Diego	100	2017	Summer	Sum-2017	Captive-100PSI	Yes	No
+SUH256	Venmic_1	16S_V4	GACGACGCATC	SD_Sum_17_100_PSI_Gland_5	29	Host	Gland_Whole	San-Diego	100	2017	Summer	Sum-2017	Captive-100PSI	Yes	No
+SUH257	Venmic_1	16S_V4	AGCACGATCTA	SD_Sum_17_150mg_L_TC_Gland_1	31	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-TCC	Yes	Yes
+SUH258	Venmic_1	16S_V4	CGACTAGCTCA	SD_Sum_17_150mg_L_TC_Gland_2	31	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-TCC	Yes	Yes
+SUH259	Venmic_1	16S_V4	AGTCGCATCGT	SD_Sum_17_150mg_L_TC_Gland_3	31	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-TCC	Yes	Yes
+SUH260	Venmic_1	16S_V4	CTACATGAGTG	SD_Sum_17_150mg_L_TC_Gland_4	31	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-TCC	Yes	Yes
+SUH261	Venmic_1	16S_V4	ACATGACATCG	SD_Sum_17_150mg_L_TC_Gland_5	31	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-TCC	Yes	Yes
+SUH262	Venmic_1	16S_V4	ACTGCGACGAG	SD_Sum_17_1_atm_Gland_1	27	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-15PSI	Yes	No
+SUH263	Venmic_1	16S_V4	TCATGCGCATC	SD_Sum_17_1_atm_Gland_2	27	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-15PSI	Yes	No
+SUH264	Venmic_1	16S_V4	TAGATCATGAC	SD_Sum_17_1_atm_Gland_3	27	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-15PSI	Yes	No
+SUH265	Venmic_1	16S_V4	ACGATGTGCTA	SD_Sum_17_1_atm_Gland_4	27	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-15PSI	Yes	No
+SUH266	Venmic_1	16S_V4	TAGTGCACTCA	SD_Sum_17_1_atm_Gland_5	27	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-15PSI	Yes	No
+SUH267	Venmic_1	16S_V4	GTGCACGCGAC	SD_Sum_17_300_PSI_Gland_1	33	Host	Gland_Whole	San-Diego	300	2017	Summer	Sum-2017	Captive-300PSI	Yes	No
+SUH268	Venmic_1	16S_V4	GCTCACAGCTA	SD_Sum_17_300_PSI_Gland_2	33	Host	Gland_Whole	San-Diego	300	2017	Summer	Sum-2017	Captive-300PSI	Yes	No
+SUH269	Venmic_1	16S_V4	GATATCGATCA	SD_Sum_17_300_PSI_Gland_3	33	Host	Gland_Whole	San-Diego	300	2017	Summer	Sum-2017	Captive-300PSI	Yes	No
+SUH270	Venmic_1	16S_V4	CTGTCATGAGT	SD_Sum_17_300_PSI_Gland_4	33	Host	Gland_Whole	San-Diego	300	2017	Summer	Sum-2017	Captive-300PSI	Yes	No
+SUH271	Venmic_1	16S_V4	AGCGATATCTG	SD_Sum_17_300_PSI_Gland_5	33	Host	Gland_Whole	San-Diego	300	2017	Summer	Sum-2017	Captive-300PSI	Yes	No
+SUH272	Venmic_1	16S_V4	ACATATACGCG	SD_Sum_17_Prey__10min_1	35	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-Prey10min	Yes	No
+SUH273	Venmic_1	16S_V4	ACGACGTAGAG	SD_Sum_17_Prey__10min_2	35	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-Prey10min	Yes	No
+SUH274	Venmic_1	16S_V4	CAGTCTGATGC	SD_Sum_17_Prey__10min_3	35	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-Prey10min	Yes	No
+SUH275	Venmic_1	16S_V4	TGTGACGAGAC	SD_Sum_17_Prey__10min_4	35	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-Prey10min	Yes	No
+SUH276	Venmic_1	16S_V4	TCGCGCTACTA	SD_Sum_17_Prey__10min_5	35	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-Prey10min	Yes	No
+SUH277	Venmic_1	16S_V4	AGATCGCTGTG	SD_Sum_17_Sterile_Gland_1	5	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-Sterile	Yes	Yes
+SUH278	Venmic_1	16S_V4	CGTAGATGTCG	SD_Sum_17_Sterile_Gland_2	5	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-Sterile	Yes	Yes
+SUH279	Venmic_1	16S_V4	GCTACTCTGAG	SD_Sum_17_Sterile_Gland_3	5	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-Sterile	Yes	Yes
+SUH280	Venmic_1	16S_V4	GCGATGTCATC	SD_Sum_17_Sterile_Gland_4	5	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-Sterile	Yes	Yes
+SUH281	Venmic_1	16S_V4	TCGCATCTGAC	SD_Sum_17_Sterile_Gland_5	5	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-Sterile	Yes	Yes
+SUH282	Venmic_1	16S_V4	TGACAGCTGCA	SD_Sum_17_WT_Bulb_1	38	Host	Gland_Bulb	San-Diego	15	2017	Summer	Sum-2017	Captive-Wildtype	Yes	Yes
+SUH283	Venmic_1	16S_V4	ATCATGTCAGT	SD_Sum_17_WT_Bulb_2	38	Host	Gland_Bulb	San-Diego	15	2017	Summer	Sum-2017	Captive-Wildtype	Yes	Yes
+SUH284	Venmic_1	16S_V4	GACTAGTGCTG	SD_Sum_17_WT_Bulb_3	38	Host	Gland_Bulb	San-Diego	15	2017	Summer	Sum-2017	Captive-Wildtype	Yes	Yes
+SUH285	Venmic_1	16S_V4	GATATGACGCG	SD_Sum_17_WT_Bulb_4	38	Host	Gland_Bulb	San-Diego	15	2017	Summer	Sum-2017	Captive-Wildtype	Yes	Yes
+SUH286	Venmic_1	16S_V4	CGAGACTAGAG	SD_Sum_17_WT_Bulb_5	38	Host	Gland_Bulb	San-Diego	15	2017	Summer	Sum-2017	Captive-Wildtype	Yes	Yes
+SUH287	Venmic_1	16S_V4	TGACACTGCTG	SD_Sum_17_WT_Distal_Duct_1	39	Host	Gland_Distal	San-Diego	15	2017	Summer	Sum-2017	Captive-Wildtype	Yes	Yes
+SUH288	Venmic_1	16S_V4	CTAGCTCAGCG	SD_Sum_17_WT_Distal_Duct_2	39	Host	Gland_Distal	San-Diego	15	2017	Summer	Sum-2017	Captive-Wildtype	Yes	Yes
+SUH289	Venmic_1	16S_V4	GCATATCAGAG	SD_Sum_17_WT_Distal_Duct_3	39	Host	Gland_Distal	San-Diego	15	2017	Summer	Sum-2017	Captive-Wildtype	Yes	Yes
+SUH290	Venmic_1	16S_V4	ACTCGTCATGC	SD_Sum_17_WT_Distal_Duct_4	39	Host	Gland_Distal	San-Diego	15	2017	Summer	Sum-2017	Captive-Wildtype	Yes	Yes
+SUH291	Venmic_1	16S_V4	GATGCAGTCAC	SD_Sum_17_WT_Distal_Duct_5	39	Host	Gland_Distal	San-Diego	15	2017	Summer	Sum-2017	Captive-Wildtype	Yes	Yes
+SUH292	Venmic_1	16S_V4	TATCGCACTAG	SD_Sum_17_WT_Gland_1	42	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-Wildtype	Yes	Yes
+SUH293	Venmic_1	16S_V4	CGATATCGATC	SD_Sum_17_WT_Gland_2	42	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-Wildtype	Yes	Yes
+SUH294	Venmic_1	16S_V4	CAGATGCGAGC	SD_Sum_17_WT_Gland_3	42	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-Wildtype	Yes	Yes
+SUH295	Venmic_1	16S_V4	GCTCTAGAGTA	SD_Sum_17_WT_Gland_4	42	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-Wildtype	Yes	Yes
+SUH296	Venmic_1	16S_V4	AGCGATGCTCA	SD_Sum_17_WT_Gland_5	42	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Captive-Wildtype	Yes	Yes
+SUH297	Venmic_1	16S_V4	TCTAGCGATGC	SD_Sum_17_WT_Proximal_Duct_1	45	Host	Gland_Proximal	San-Diego	15	2017	Summer	Sum-2017	Captive-Wildtype	Yes	Yes
+SUH298	Venmic_1	16S_V4	ATCAGTGTCAC	SD_Sum_17_WT_Proximal_Duct_2	45	Host	Gland_Proximal	San-Diego	15	2017	Summer	Sum-2017	Captive-Wildtype	Yes	Yes
+SUH299	Venmic_1	16S_V4	ACGTCGACTGA	SD_Sum_17_WT_Proximal_Duct_3	45	Host	Gland_Proximal	San-Diego	15	2017	Summer	Sum-2017	Captive-Wildtype	Yes	Yes
+SUH300	Venmic_1	16S_V4	ACGTGTGAGCA	SD_Sum_17_WT_Proximal_Duct_4	45	Host	Gland_Proximal	San-Diego	15	2017	Summer	Sum-2017	Captive-Wildtype	Yes	Yes
+SUH301	Venmic_1	16S_V4	ATCTCAGCAGT	SD_Sum_17_WT_Proximal_Duct_5	45	Host	Gland_Proximal	San-Diego	15	2017	Summer	Sum-2017	Captive-Wildtype	Yes	Yes
+SUH302	Venmic_1	16S_V4	ATAGAGCTCAG	San_Diego_SU_17_Gland_1	26	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH303	Venmic_1	16S_V4	ACATGTGTCGC	San_Diego_SU_17_Gland_2	26	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH304	Venmic_1	16S_V4	GAGTAGATCAC	San_Diego_SU_17_Gland_3	26	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH305	Venmic_1	16S_V4	ACTCTATGCGA	San_Diego_SU_17_Gland_4	26	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH306	Venmic_1	16S_V4	GCTGATATACA	San_Diego_SU_17_Gland_5	26	Host	Gland_Whole	San-Diego	15	2017	Summer	Sum-2017	Wildtype	Yes	No
+SUH307	Venmic_2	18S	TAAGGCCTATC	EB_Buffer_Control.2				control_sample							
+SUH308	Venmic_2	18S	TTGTCGCACAA	MX_0.5_km_WI_16_3_Gland_2				Puerto_Nuevo							
+SUH309	Venmic_2	18S	AACTGTGCGTA	MX_0.5_km_WI_16_3_Gland_3				Puerto_Nuevo							
+SUH310	Venmic_2	18S	TGCGAACGTAT	MX_0.5_km_WI_16_3_Gland_4				Puerto_Nuevo							
+SUH311	Venmic_2	18S	CATCAGCGTGT	MX_0.5_km_WI_16_3_Gland_5				Puerto_Nuevo							
+SUH312	Venmic_2	18S	TTCAACAGGTG	SD_Sum_17_WT_Water_1				Mission_Point,_SD							
+SUH313	Venmic_2	18S	AGCGTGTCCAA	SD_Sum_17_WT_Water_2				Mission_Point,_SD							
+SUH314	Venmic_2	18S	CCTGGATATAG	SD_Sum_17_WT_Water_3				Mission_Point,_SD							
+SUH315	Venmic_2	18S	ATGACCATCGT	SD_Sum_17_Sterile_Water_1				Mission_Point,_SD							
+SUH316	Venmic_2	18S	GCATGGCTCTA	SD_Sum_17_Sterile_Water_2				Mission_Point,_SD							
+SUH317	Venmic_2	18S	TTGAACCAGCT	SD_Sum_17_150mg/L_TC_Water_2				Mission_Point,_SD							
+SUH318	Venmic_2	18S	CCAGTGTATGC	SD_Sum_17_150mg/L_TC_Water_3				Mission_Point,_SD							
+SUH319	Venmic_2	18S	TGCTACCATGA	SD_Sum_17_1_atm_Water_1				Mission_Point,_SD_(2_mL_spun)							
+SUH320	Venmic_2	18S	ATGCGAGTATC	SD_Sum_17_1_atm_Water_2				Mission_Point,_SD_(2_mL_spun)							
+SUH321	Venmic_2	18S	GTATCCATGCG	SD_Sum_17_1_atm_Water_3				Mission_Point,_SD_(2_mL_spun)							
+SUH322	Venmic_2	18S	CTTGCTGAAGA	SD_Sum_17_100_PSI_Water_1				Mission_Point,_SD_(2_mL_spun)							
+SUH323	Venmic_2	18S	TCTAAGGCACG	SD_Sum_17_100_PSI_Water_2				Mission_Point,_SD_(2_mL_spun)							
+SUH324	Venmic_2	18S	AGGCGACCTTA	SD_Sum_17_100_PSI_Water_3				Mission_Point,_SD_(2_mL_spun)							
+SUH325	Venmic_2	18S	TCAGGCGCTTA	SD_Sum_17_300_PSI_Water_1				Mission_Point,_SD_(2_mL_spun)							
+SUH326	Venmic_2	18S	CAGACATTGCG	SD_Sum_17_300_PSI_Water_2				Mission_Point,_SD_(2_mL_spun)							
+SUH327	Venmic_2	18S	GGTCCAACTAG	SD_Sum_17_300_PSI_Water_3				Mission_Point,_SD_(2_mL_spun)							
+SUH328	Venmic_2	18S	CTACAATGTCG	SD_Sum_17_Prey__10min_Water_1				Mission_Point,_SD_(2_mL_spun)							
+SUH329	Venmic_2	18S	AACAGGTTCGC	SD_Sum_17_Prey__10min_Water_2				Mission_Point,_SD_(2_mL_spun)							
+SUH330	Venmic_2	18S	ACACGGTGTCT	SD_Sum_17_Prey__10min_Water_3				Mission_Point,_SD_(2_mL_spun)							
+SUH331	Venmic_2	18S	GACGCTAGTTC	SD_Sum_17_Prey__10min_Water_3.2				La_Jolla,_SD							
+SUH332	Venmic_2	18S	GATAGTGCCAC	Monterey_SU_17_Water_1				Monterey,_CA							
+SUH333	Venmic_2	18S	ATACTTCGCAG	Monterey_SU_17_Water_2				Monterey,_CA							
+SUH334	Venmic_2	18S	GAATCTTCGAG	Monterey_SU_17_Water_3				Monterey,_CA							
+SUH335	Venmic_2	18S	TGAATAGTCCG	MX_0.5_km_SU_17_Water_1				Puerto_Nuevo							
+SUH336	Venmic_2	18S	TTAGCGTCACG	MX_0.5_km_SU_17_Water_2				Puerto_Nuevo							
+SUH337	Venmic_2	18S	ACTGTCGAAGC	MX_0.5_km_SU_17_Water_3				Puerto_Nuevo							
+SUH338	Venmic_2	18S	CTAGTCAGCTG	MX_0.5_km_SU_16_Water_1				Puerto_Nuevo							
+SUH339	Venmic_2	18S	GTCCGCTGAAT	MX_0.5_km_SU_16_Water_2				Puerto_Nuevo							
+SUH340	Venmic_2	18S	GAACACTTCTG	MX_0.5_km_SU_16_Water_3				Puerto_Nuevo							
+SUH341	Venmic_2	18S	TGTCGGCTACA	MX_0_km_SU_17_Water_1				Puerto_Nuevo							
+SUH342	Venmic_2	18S	GTAGCAACGTC	MX_0_km_SU_17_Water_2				Puerto_Nuevo							
+SUH343	Venmic_2	18S	GCCTTAAGCGA	MX_0_km_SU_17_Water_3				Puerto_Nuevo							
+SUH344	Venmic_2	18S	GACTTATAGGC	MX_1.5_km_SU_17_Water_1				Puerto_Nuevo							
+SUH345	Venmic_2	18S	TTAACGGCTGA	MX_1.5_km_SU_17_Water_2				Puerto_Nuevo							
+SUH346	Venmic_2	18S	TAGGCCGACTT	MX_1.5_km_SU_17_Water_3				Puerto_Nuevo							
+SUH347	Venmic_2	18S	TGGCACCGATT	MX_0.5_km_WI_16_1_Water_1				Puerto_Nuevo							
+SUH348	Venmic_2	18S	TACCGCTAGTA	MX_0.5_km_WI_16_1_Water_2				Puerto_Nuevo							
+SUH349	Venmic_2	18S	TGGCTCTACAG	MX_0.5_km_WI_16_1_Water_3				Puerto_Nuevo							
+SUH350	Venmic_2	18S	ATGGCAGCTCT	MX_0.5_km_WI_16_2_Water_1				Puerto_Nuevo							
+SUH351	Venmic_2	18S	GATACGTCCTG	MX_0.5_km_WI_16_2_Water_2				Puerto_Nuevo							
+SUH352	Venmic_2	18S	CATGAGTGCTA	MX_0.5_km_WI_16_2_Water_3				Puerto_Nuevo							
+SUH353	Venmic_2	18S	ACGCTATCTGG	MX_0.5_km_WI_16_3_Water_1				Puerto_Nuevo							
+SUH354	Venmic_2	18S	CTTCTAAGGAG	MX_0.5_km_WI_16_3_Water_2				Puerto_Nuevo							
+SUH355	Venmic_2	18S	ATTCATGGACG	MX_0.5_km_WI_16_3_Water_3				Puerto_Nuevo							
+SUH356	Venmic_2	18S	TCTGGAACGCT	Baja_6-20-17_CRS_1				CRS							
+SUH357	Venmic_2	18S	GCCGCTTAATA	Baja_6-20-17_CRS_2				CRS							
+SUH358	Venmic_2	18S	TCAGAGGTTAC	Baja_6-20-17_CRS_3				CRS							
+SUH359	Venmic_2	18S	GTCCAGTAATG	Baja_6-20-17_LYR_1				LYR							
+SUH360	Venmic_2	18S	ACGACGTCTTA	Baja_6-20-17_LYR_2				LYR							
+SUH361	Venmic_2	18S	AAGTGGACTCT	Baja_6-20-17_LYR_3				LYR							
+SUH362	Venmic_2	18S	TAGTCAGGCCA	Baja_6-20-17_LH1				LH							
+SUH363	Venmic_2	18S	AGGCATCTTAC	Baja_6-20-17_LH2				LH							
+SUH364	Venmic_2	18S	GGTATGACTCA	Baja_6-20-17_LH3				LH							
+SUH365	Venmic_2	18S	GTTACCTCAGA	SD_Sum_17_WT_Shell_1				Mission_Point,_SD							
+SUH366	Venmic_2	18S	TCGCATGAAGT	SD_Sum_17_WT_Shell_2				Mission_Point,_SD							
+SUH367	Venmic_2	18S	GAGTTCCATAG	SD_Sum_17_WT_Shell_3				Mission_Point,_SD							
+SUH368	Venmic_2	18S	CAATTGTGCAC	SD_Sum_17_WT_Shell_4				Mission_Point,_SD							
+SUH369	Venmic_2	18S	CACATTGTGAG	SD_Sum_17_WT_Shell_5				Mission_Point,_SD							
+SUH370	Venmic_2	18S	CGGTACTTGCA	SD_Sum_17_WT_Gut_1				Mission_Point,_SD							
+SUH371	Venmic_2	18S	TCGCTGTAACA	SD_Sum_17_WT_Gut_2				Mission_Point,_SD							
+SUH372	Venmic_2	18S	CTTGTAGGACC	SD_Sum_17_WT_Gut_3				Mission_Point,_SD							
+SUH373	Venmic_2	18S	GTACGAATCCT	SD_Sum_17_WT_Gut_4				Mission_Point,_SD							
+SUH374	Venmic_2	18S	CTCAGTATGCA	SD_Sum_17_WT_Gut_5				Mission_Point,_SD							
+SUH375	Venmic_2	18S	GGTTGCACAAT	SD_Sum_17_WT_Radula_Sac_1				Mission_Point,_SD							
+SUH376	Venmic_2	18S	ATCGGCGTTAC	SD_Sum_17_WT_Radula_Sac_2				Mission_Point,_SD							
+SUH377	Venmic_2	18S	CGATGTCGTCA	SD_Sum_17_WT_Radula_Sac_3				Mission_Point,_SD							
+SUH378	Venmic_2	18S	CAGCTTACTAG	SD_Sum_17_WT_Radula_Sac_4				Mission_Point,_SD							
+SUH379	Venmic_2	18S	CCAGATGATCG	SD_Sum_17_WT_Radula_Sac_5				Mission_Point,_SD							
+SUH380	Venmic_2	18S	ACTGTACGCGT	SD_Sum_17_WT_Egg_1				Mission_Point,_SD							
+SUH381	Venmic_2	18S	TCCTAGCAGTG	SD_Sum_17_WT_Egg_2				Mission_Point,_SD							
+SUH382	Venmic_2	18S	AGCGATGCCTT	SD_Sum_17_WT_Egg_Laid_3				Mission_Point,_SD							
+SUH383	Venmic_2	18S	CATCATGAGGC	SD_Sum_17_WT_Egg_Laid_4				Mission_Point,_SD							
+SUH384	Venmic_2	18S	GAAGTCTCGCA	SD_Sum_17_WT_Larva_1_6.9.17				Mission_Point,_SD							
+SUH385	Venmic_2	18S	GCACGTTCTAA	LA_Sum_17_WT_Egg_Laid_1_(San_Onfore_6.22.17)				San_Onofore,_LA							
+SUH386	Venmic_2	18S	CAGTGATCCTA	MB_Sum_17_WT_Egg_Laid_1				Monterey,_CA							
+SUH387	Venmic_2	18S	TAGAGCCGTTA	MB_Sum_17_WT_Egg_Laid_2				Monterey,_CA							
+SUH388	Venmic_2	18S	TACAGATGGCT	MX_0.5_km_SU_16_Sediment_1				Puerto_Nuevo							
+SUH389	Venmic_2	18S	CACGTGACATG	MX_0.5_km_SU_16_Sediment_2				Puerto_Nuevo							
+SUH390	Venmic_2	18S	TGCGCGAATAC	MX_0.5_km_SU_16_Sediment_3				Puerto_Nuevo							
+SUH391	Venmic_2	18S	TCCACAGGAGT	High_venom_-_triplicate_(#10)_b				Mission_Point,_SD							
+SUH392	Venmic_2	18S	ACATCTTGACG	High_venom_-_triplicate_(#10)_c				Mission_Point,_SD							
+SUH393	Venmic_2	18S	CGGACGTTCAT	High_water_-_triplicate_(#98)_b				Mission_Point,_SD							
+SUH394	Venmic_2	18S	CTCTAAGCATG	High_water_-_triplicate_(#98)_c				Mission_Point,_SD							
+SUH395	Venmic_2	16S_V4	ACTGATACATG	EB_Buffer_Control.2				control_sample							
+SUH396	Venmic_2	16S_V4	TATCGCACTAG	MX_0.5_km_WI_16_3_Gland_2				Puerto_Nuevo							
+SUH397	Venmic_2	16S_V4	CGATATCGATC	MX_0.5_km_WI_16_3_Gland_3				Puerto_Nuevo							
+SUH398	Venmic_2	16S_V4	CAGATGCGAGC	MX_0.5_km_WI_16_3_Gland_4				Puerto_Nuevo							
+SUH399	Venmic_2	16S_V4	GCTCTAGAGTA	MX_0.5_km_WI_16_3_Gland_5				Puerto_Nuevo							
+SUH400	Venmic_2	16S_V4	AGCGATGCTCA	SD_Sum_17_WT_Water_1				Mission_Point,_SD							
+SUH401	Venmic_2	16S_V4	AGATCGCTGTG	SD_Sum_17_WT_Water_2				Mission_Point,_SD							
+SUH402	Venmic_2	16S_V4	CGTAGATGTCG	SD_Sum_17_WT_Water_3				Mission_Point,_SD							
+SUH403	Venmic_2	16S_V4	GCTACTCTGAG	SD_Sum_17_Sterile_Water_1				Mission_Point,_SD							
+SUH404	Venmic_2	16S_V4	GCGATGTCATC	SD_Sum_17_Sterile_Water_2				Mission_Point,_SD							
+SUH405	Venmic_2	16S_V4	TCGCATCTGAC	SD_Sum_17_150mg/L_TC_Water_2				Mission_Point,_SD							
+SUH406	Venmic_2	16S_V4	AGCACGATCTA	SD_Sum_17_150mg/L_TC_Water_3				Mission_Point,_SD							
+SUH407	Venmic_2	16S_V4	CGACTAGCTCA	SD_Sum_17_1_atm_Water_1				Mission_Point,_SD_(2_mL_spun)							
+SUH408	Venmic_2	16S_V4	AGTCGCATCGT	SD_Sum_17_1_atm_Water_2				Mission_Point,_SD_(2_mL_spun)							
+SUH409	Venmic_2	16S_V4	CTACATGAGTG	SD_Sum_17_1_atm_Water_3				Mission_Point,_SD_(2_mL_spun)							
+SUH410	Venmic_2	16S_V4	ACATGACATCG	SD_Sum_17_100_PSI_Water_1				Mission_Point,_SD_(2_mL_spun)							
+SUH411	Venmic_2	16S_V4	ACTGCGACGAG	SD_Sum_17_100_PSI_Water_2				Mission_Point,_SD_(2_mL_spun)							
+SUH412	Venmic_2	16S_V4	TCATGCGCATC	SD_Sum_17_100_PSI_Water_3				Mission_Point,_SD_(2_mL_spun)							
+SUH413	Venmic_2	16S_V4	TAGATCATGAC	SD_Sum_17_300_PSI_Water_1				Mission_Point,_SD_(2_mL_spun)							
+SUH414	Venmic_2	16S_V4	ACGATGTGCTA	SD_Sum_17_300_PSI_Water_2				Mission_Point,_SD_(2_mL_spun)							
+SUH415	Venmic_2	16S_V4	TAGTGCACTCA	SD_Sum_17_300_PSI_Water_3				Mission_Point,_SD_(2_mL_spun)							
+SUH416	Venmic_2	16S_V4	GCTCATGTAGT	SD_Sum_17_Prey__10min_Water_1				Mission_Point,_SD_(2_mL_spun)							
+SUH417	Venmic_2	16S_V4	TAGCACGAGTG	SD_Sum_17_Prey__10min_Water_2				Mission_Point,_SD_(2_mL_spun)							
+SUH418	Venmic_2	16S_V4	AGTCTACTGCG	SD_Sum_17_Prey__10min_Water_3				Mission_Point,_SD_(2_mL_spun)							
+SUH419	Venmic_2	16S_V4	GTCTACACGAG	SD_Sum_17_Prey__10min_Water_3.2				La_Jolla,_SD							
+SUH420	Venmic_2	16S_V4	GACGACGCATC	Monterey_SU_17_Water_1				Monterey,_CA							
+SUH421	Venmic_2	16S_V4	GTGCACGCGAC	Monterey_SU_17_Water_2				Monterey,_CA							
+SUH422	Venmic_2	16S_V4	GCTCACAGCTA	Monterey_SU_17_Water_3				Monterey,_CA							
+SUH423	Venmic_2	16S_V4	GATATCGATCA	MX_0.5_km_SU_17_Water_1				Puerto_Nuevo							
+SUH424	Venmic_2	16S_V4	CTGTCATGAGT	MX_0.5_km_SU_17_Water_2				Puerto_Nuevo							
+SUH425	Venmic_2	16S_V4	AGCGATATCTG	MX_0.5_km_SU_17_Water_3				Puerto_Nuevo							
+SUH426	Venmic_2	16S_V4	ACATATACGCG	MX_0.5_km_SU_16_Water_1				Puerto_Nuevo							
+SUH427	Venmic_2	16S_V4	ACGACGTAGAG	MX_0.5_km_SU_16_Water_2				Puerto_Nuevo							
+SUH428	Venmic_2	16S_V4	CAGTCTGATGC	MX_0.5_km_SU_16_Water_3				Puerto_Nuevo							
+SUH429	Venmic_2	16S_V4	TGTGACGAGAC	MX_0_km_SU_17_Water_1				Puerto_Nuevo							
+SUH430	Venmic_2	16S_V4	TCGCGCTACTA	MX_0_km_SU_17_Water_2				Puerto_Nuevo							
+SUH431	Venmic_2	16S_V4	TGACAGCTGCA	MX_0_km_SU_17_Water_3				Puerto_Nuevo							
+SUH432	Venmic_2	16S_V4	ATCATGTCAGT	MX_1.5_km_SU_17_Water_1				Puerto_Nuevo							
+SUH433	Venmic_2	16S_V4	GACTAGTGCTG	MX_1.5_km_SU_17_Water_2				Puerto_Nuevo							
+SUH434	Venmic_2	16S_V4	GATATGACGCG	MX_1.5_km_SU_17_Water_3				Puerto_Nuevo							
+SUH435	Venmic_2	16S_V4	CGAGACTAGAG	MX_0.5_km_WI_16_1_Water_1				Puerto_Nuevo							
+SUH436	Venmic_2	16S_V4	TCTAGCGATGC	MX_0.5_km_WI_16_1_Water_2				Puerto_Nuevo							
+SUH437	Venmic_2	16S_V4	ATCAGTGTCAC	MX_0.5_km_WI_16_1_Water_3				Puerto_Nuevo							
+SUH438	Venmic_2	16S_V4	ACGTCGACTGA	MX_0.5_km_WI_16_2_Water_1				Puerto_Nuevo							
+SUH439	Venmic_2	16S_V4	ACGTGTGAGCA	MX_0.5_km_WI_16_2_Water_2				Puerto_Nuevo							
+SUH440	Venmic_2	16S_V4	ATCTCAGCAGT	MX_0.5_km_WI_16_2_Water_3				Puerto_Nuevo							
+SUH441	Venmic_2	16S_V4	TGACACTGCTG	MX_0.5_km_WI_16_3_Water_1				Puerto_Nuevo							
+SUH442	Venmic_2	16S_V4	CTAGCTCAGCG	MX_0.5_km_WI_16_3_Water_2				Puerto_Nuevo							
+SUH443	Venmic_2	16S_V4	GCATATCAGAG	MX_0.5_km_WI_16_3_Water_3				Puerto_Nuevo							
+SUH444	Venmic_2	16S_V4	ACTCGTCATGC	Baja_6-20-17_CRS_1				CRS							
+SUH445	Venmic_2	16S_V4	GATGCAGTCAC	Baja_6-20-17_CRS_2				CRS							
+SUH446	Venmic_2	16S_V4	GTCGCTCATGA	Baja_6-20-17_CRS_3				CRS							
+SUH447	Venmic_2	16S_V4	GATACGCTACA	Baja_6-20-17_LYR_1				LYR							
+SUH448	Venmic_2	16S_V4	GATGACACAGT	Baja_6-20-17_LYR_2				LYR							
+SUH449	Venmic_2	16S_V4	ACGTGATGCTG	Baja_6-20-17_LYR_3				LYR							
+SUH450	Venmic_2	16S_V4	TATACGCAGCG	Baja_6-20-17_LH1				LH							
+SUH451	Venmic_2	16S_V4	ATAGAGCTCAG	Baja_6-20-17_LH2				LH							
+SUH452	Venmic_2	16S_V4	ACATGTGTCGC	Baja_6-20-17_LH3				LH							
+SUH453	Venmic_2	16S_V4	GAGTAGATCAC	SD_Sum_17_WT_Shell_1				Mission_Point,_SD							
+SUH454	Venmic_2	16S_V4	ACTCTATGCGA	SD_Sum_17_WT_Shell_2				Mission_Point,_SD							
+SUH455	Venmic_2	16S_V4	GCTGATATACA	SD_Sum_17_WT_Shell_3				Mission_Point,_SD							
+SUH456	Venmic_2	16S_V4	TAGCGTACTCT	SD_Sum_17_WT_Shell_4				Mission_Point,_SD							
+SUH457	Venmic_2	16S_V4	CACAGACTATG	SD_Sum_17_WT_Shell_5				Mission_Point,_SD							
+SUH458	Venmic_2	16S_V4	TAGTCGATACG	SD_Sum_17_WT_Gut_1				Mission_Point,_SD							
+SUH459	Venmic_2	16S_V4	CGCATGATCAG	SD_Sum_17_WT_Gut_2				Mission_Point,_SD							
+SUH460	Venmic_2	16S_V4	TACATAGTCGC	SD_Sum_17_WT_Gut_3				Mission_Point,_SD							
+SUH461	Venmic_2	16S_V4	GCTACGTGCAC	SD_Sum_17_WT_Gut_4				Mission_Point,_SD							
+SUH462	Venmic_2	16S_V4	CTAGTCGACGA	SD_Sum_17_WT_Gut_5				Mission_Point,_SD							
+SUH463	Venmic_2	16S_V4	CAGATCTGACA	SD_Sum_17_WT_Radula_Sac_1				Mission_Point,_SD							
+SUH464	Venmic_2	16S_V4	CTGACTACTCT	SD_Sum_17_WT_Radula_Sac_2				Mission_Point,_SD							
+SUH465	Venmic_2	16S_V4	CTAGACTGATG	SD_Sum_17_WT_Radula_Sac_3				Mission_Point,_SD							
+SUH466	Venmic_2	16S_V4	CATGAGAGACG	SD_Sum_17_WT_Radula_Sac_4				Mission_Point,_SD							
+SUH467	Venmic_2	16S_V4	GATCAGTACAG	SD_Sum_17_WT_Radula_Sac_5				Mission_Point,_SD							
+SUH468	Venmic_2	16S_V4	ATGTAGTGCGC	SD_Sum_17_WT_Egg_1				Mission_Point,_SD							
+SUH469	Venmic_2	16S_V4	GACGATGACAC	SD_Sum_17_WT_Egg_2				Mission_Point,_SD							
+SUH470	Venmic_2	16S_V4	CACTGTATAGA	SD_Sum_17_WT_Egg_Laid_3				Mission_Point,_SD							
+SUH471	Venmic_2	16S_V4	TGTAGCTGACA	SD_Sum_17_WT_Egg_Laid_4				Mission_Point,_SD							
+SUH472	Venmic_2	16S_V4	ACGTAGTATCT	SD_Sum_17_WT_Larva_1_6.9.17				Mission_Point,_SD							
+SUH473	Venmic_2	16S_V4	TCTACGAGATG	LA_Sum_17_WT_Egg_Laid_1_(San_Onfore_6.22.17)				San_Onofore,_LA							
+SUH474	Venmic_2	16S_V4	CATCACTGTAG	MB_Sum_17_WT_Egg_Laid_1				Monterey,_CA							
+SUH475	Venmic_2	16S_V4	CGATGAGCGTC	MB_Sum_17_WT_Egg_Laid_2				Monterey,_CA							
+SUH476	Venmic_2	16S_V4	GCACGTATAGC	MX_0.5_km_SU_16_Sediment_1				Puerto_Nuevo							
+SUH477	Venmic_2	16S_V4	CGCGCAGTGTA	MX_0.5_km_SU_16_Sediment_2				Puerto_Nuevo							
+SUH478	Venmic_2	16S_V4	CGCACATCAGA	MX_0.5_km_SU_16_Sediment_3				Puerto_Nuevo							
+SUH479	Venmic_2	16S_V4	GTCACGACACA	High_venom_-_triplicate_(#10)_b				Mission_Point,_SD							
+SUH480	Venmic_2	16S_V4	AGAGCATATCT	High_venom_-_triplicate_(#10)_c				Mission_Point,_SD							
+SUH481	Venmic_2	16S_V4	ACGATCGCTAG	High_water_-_triplicate_(#98)_b				Mission_Point,_SD							
+SUH482	Venmic_2	16S_V4	AGATGTAGCTC	High_water_-_triplicate_(#98)_c				Mission_Point,_SD							
