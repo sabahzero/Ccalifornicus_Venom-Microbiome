@@ -26,9 +26,9 @@ SUH151,MX_1_5_km_SU_17_Gland_2,Yes,No,Venomic_1,18S,GAAGTCTCGCA,158516,Venom,Ven
 SUH152,MX_1_5_km_SU_17_Gland_3,Yes,No,Venomic_1,18S,GCACGTTCTAA,190509,Venom,Venom,,PN_Major,2017_Summer,NA,,,,PN_Major,32.25,-116.94
 SUH153,MX_1_5_km_SU_17_Gland_4,Yes,No,Venomic_1,18S,CAGTGATCCTA,31848,Venom,Venom,,PN_Major,2017_Summer,NA,,,,PN_Major,32.25,-116.94
 SUH154,MX_1_5_km_SU_17_Gland_5,Yes,No,Venomic_1,18S,TAGAGCCGTTA,109656,Venom,Venom,,PN_Major,2017_Summer,NA,,,,PN_Major,32.25,-116.94
-SUH156,Monterey_SU_17_Gland_2,Yes,No,Venomic_1,18S,GTCCAGTAATG,198870,Venom,Venom,,MB,2017_Summer,NA,,,,MB,36.61,121.89
-SUH157,Monterey_SU_17_Gland_3,Yes,No,Venomic_1,18S,ACGACGTCTTA,197851,Venom,Venom,,MB,2017_Summer,NA,,,,MB,36.61,121.89
-SUH159,Monterey_SU_17_Gland_5,Yes,No,Venomic_1,18S,TAGTCAGGCCA,9999,Venom,Venom,,MB,2017_Summer,NA,,,,MB,36.61,121.89
+SUH156,Monterey_SU_17_Gland_2,Yes,No,Venomic_1,18S,GTCCAGTAATG,198870,Venom,Venom,,MB,2017_Summer,NA,,,,MB,36.61,-121.89
+SUH157,Monterey_SU_17_Gland_3,Yes,No,Venomic_1,18S,ACGACGTCTTA,197851,Venom,Venom,,MB,2017_Summer,NA,,,,MB,36.61,-121.89
+SUH159,Monterey_SU_17_Gland_5,Yes,No,Venomic_1,18S,TAGTCAGGCCA,9999,Venom,Venom,,MB,2017_Summer,NA,,,,MB,36.61,-121.89
 SUH160,SD_Sum_17_100_PSI_Gland_1,Yes,No,Venomic_1,18S,CTACAATGTCG,132972,Venom,Venom,,,,NA,,,100PSI_Venom,SD,32.76,-117.25
 SUH161,SD_Sum_17_100_PSI_Gland_2,Yes,No,Venomic_1,18S,AACAGGTTCGC,12934,Venom,Venom,,,,NA,,,100PSI_Venom,SD,32.76,-117.25
 SUH162,SD_Sum_17_100_PSI_Gland_3,Yes,No,Venomic_1,18S,ACACGGTGTCT,26244,Venom,Venom,,,,NA,,,100PSI_Venom,SD,32.76,-117.25
@@ -109,9 +109,9 @@ SUH243,MX_1_5_km_SU_17_Gland_2,Yes,No,Venomic_1,16S_V4,ACGTAGTATCT,20681,Venom,V
 SUH244,MX_1_5_km_SU_17_Gland_3,Yes,No,Venomic_1,16S_V4,TCTACGAGATG,75143.5,Venom,Venom,,PN_Major,2017_Summer,NA,,,,PN_Major,32.25,-116.94
 SUH245,MX_1_5_km_SU_17_Gland_4,Yes,No,Venomic_1,16S_V4,CATCACTGTAG,30368,Venom,Venom,,PN_Major,2017_Summer,NA,,,,PN_Major,32.25,-116.94
 SUH246,MX_1_5_km_SU_17_Gland_5,Yes,No,Venomic_1,16S_V4,CGATGAGCGTC,54815.5,Venom,Venom,,PN_Major,2017_Summer,NA,,,,PN_Major,32.25,-116.94
-SUH248,Monterey_SU_17_Gland_2,Yes,No,Venomic_1,16S_V4,GATACGCTACA,24727.5,Venom,Venom,,MB,2017_Summer,NA,,,,MB,36.61,121.89
-SUH249,Monterey_SU_17_Gland_3,Yes,No,Venomic_1,16S_V4,GATGACACAGT,10133,Venom,Venom,,MB,2017_Summer,NA,,,,MB,36.61,121.89
-SUH251,Monterey_SU_17_Gland_5,Yes,No,Venomic_1,16S_V4,TATACGCAGCG,19567.5,Venom,Venom,,MB,2017_Summer,NA,,,,MB,36.61,121.89
+SUH248,Monterey_SU_17_Gland_2,Yes,No,Venomic_1,16S_V4,GATACGCTACA,24727.5,Venom,Venom,,MB,2017_Summer,NA,,,,MB,36.61,-121.89
+SUH249,Monterey_SU_17_Gland_3,Yes,No,Venomic_1,16S_V4,GATGACACAGT,10133,Venom,Venom,,MB,2017_Summer,NA,,,,MB,36.61,-121.89
+SUH251,Monterey_SU_17_Gland_5,Yes,No,Venomic_1,16S_V4,TATACGCAGCG,19567.5,Venom,Venom,,MB,2017_Summer,NA,,,,MB,36.61,-121.89
 SUH252,SD_Sum_17_100_PSI_Gland_1,Yes,No,Venomic_1,16S_V4,GCTCATGTAGT,11808,Venom,Venom,,,,NA,,,100PSI_Venom,SD,32.76,-117.25
 SUH253,SD_Sum_17_100_PSI_Gland_2,Yes,No,Venomic_1,16S_V4,TAGCACGAGTG,27466,Venom,Venom,,,,NA,,,100PSI_Venom,SD,32.76,-117.25
 SUH254,SD_Sum_17_100_PSI_Gland_3,Yes,No,Venomic_1,16S_V4,AGTCTACTGCG,13525,Venom,Venom,,,,NA,,,100PSI_Venom,SD,32.76,-117.25
@@ -214,8 +214,8 @@ SUH382,SD_Sum_17_WT_Egg_Laid_3,,,Venomic_2,18S,AGCGATGCCTT,64158,Egg_Laid,Egg_La
 SUH383,SD_Sum_17_WT_Egg_Laid_4,,,Venomic_2,18S,CATCATGAGGC,126661,Egg_Laid,Egg_Laid,,,,NA,,,,SD,32.76,-117.25
 SUH384,SD_Sum_17_WT_Larva_1_6.9.17,,,Venomic_2,18S,GAAGTCTCGCA,213725,Larva,Larva,,,,NA,,,,SD,32.76,-117.25
 SUH385,LA_Sum_17_WT_Egg_Laid_1_(San_Onfore_6.22.17),,,Venomic_2,18S,GCACGTTCTAA,10486,Egg_Laid,Egg_Laid,,LA,2017_Summer,NA,,,,LA,33.37,-117.57
-SUH386,MB_Sum_17_WT_Egg_Laid_1,,,Venomic_2,18S,CAGTGATCCTA,93680,Egg_Laid,Egg_Laid,,MB,2017_Summer,NA,,,,MB,36.61,121.89
-SUH387,MB_Sum_17_WT_Egg_Laid_2,,,Venomic_2,18S,TAGAGCCGTTA,41728,Egg_Laid,Egg_Laid,,MB,2017_Summer,NA,,,,MB,36.61,121.89
+SUH386,MB_Sum_17_WT_Egg_Laid_1,,,Venomic_2,18S,CAGTGATCCTA,93680,Egg_Laid,Egg_Laid,,MB,2017_Summer,NA,,,,MB,36.61,-121.89
+SUH387,MB_Sum_17_WT_Egg_Laid_2,,,Venomic_2,18S,TAGAGCCGTTA,41728,Egg_Laid,Egg_Laid,,MB,2017_Summer,NA,,,,MB,36.61,-121.89
 SUH388,MX_0.5_km_SU_16_Sediment_1,,,Venomic_2,18S,TACAGATGGCT,41757,Sediment,Sediment,,PN_Minor,2016_Summer,NA,,,,,NA,NA
 SUH389,MX_0.5_km_SU_16_Sediment_2,,,Venomic_2,18S,CACGTGACATG,42715,Sediment,Sediment,,PN_Minor,2016_Summer,NA,,,,,NA,NA
 SUH390,MX_0.5_km_SU_16_Sediment_3,,,Venomic_2,18S,TGCGCGAATAC,78325,Sediment,Sediment,,PN_Minor,2016_Summer,NA,,,,,NA,NA
@@ -271,8 +271,8 @@ SUH470,SD_Sum_17_WT_Egg_Laid_3,,,Venomic_2,16S_V4,CACTGTATAGA,23981,Egg_Laid,Egg
 SUH471,SD_Sum_17_WT_Egg_Laid_4,,,Venomic_2,16S_V4,TGTAGCTGACA,43927,Egg_Laid,Egg_Laid,,,,NA,,,,SD,32.76,-117.25
 SUH472,SD_Sum_17_WT_Larva_1_6.9.17,,,Venomic_2,16S_V4,ACGTAGTATCT,4336.5,Larva,Larva,,,,NA,,,,SD,32.76,-117.25
 SUH473,LA_Sum_17_WT_Egg_Laid_1_(San_Onfore_6.22.17),,,Venomic_2,16S_V4,TCTACGAGATG,33383.5,Egg_Laid,Egg_Laid,,LA,2017_Summer,NA,,,,LA,33.37,-117.57
-SUH474,MB_Sum_17_WT_Egg_Laid_1,,,Venomic_2,16S_V4,CATCACTGTAG,33289.5,Egg_Laid,Egg_Laid,,MB,2017_Summer,NA,,,,MB,36.61,121.89
-SUH475,MB_Sum_17_WT_Egg_Laid_2,,,Venomic_2,16S_V4,CGATGAGCGTC,11614,Egg_Laid,Egg_Laid,,MB,2017_Summer,NA,,,,MB,36.61,121.89
+SUH474,MB_Sum_17_WT_Egg_Laid_1,,,Venomic_2,16S_V4,CATCACTGTAG,33289.5,Egg_Laid,Egg_Laid,,MB,2017_Summer,NA,,,,MB,36.61,-121.89
+SUH475,MB_Sum_17_WT_Egg_Laid_2,,,Venomic_2,16S_V4,CGATGAGCGTC,11614,Egg_Laid,Egg_Laid,,MB,2017_Summer,NA,,,,MB,36.61,-121.89
 SUH476,MX_0.5_km_SU_16_Sediment_1,,,Venomic_2,16S_V4,GCACGTATAGC,50554,Sediment,Sediment,,PN_Minor,2016_Summer,NA,,,,,NA,NA
 SUH477,MX_0.5_km_SU_16_Sediment_2,,,Venomic_2,16S_V4,CGCGCAGTGTA,43780,Sediment,Sediment,,PN_Minor,2016_Summer,NA,,,,,NA,NA
 SUH478,MX_0.5_km_SU_16_Sediment_3,,,Venomic_2,16S_V4,CGCACATCAGA,43274,Sediment,Sediment,,PN_Minor,2016_Summer,NA,,,,,NA,NA
