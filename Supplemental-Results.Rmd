@@ -1,0 +1,1040 @@
+---
+title: "Californiconus californicus venom microbiome"
+author: "Sabah Ul-Hasan"
+output: html_document
+---
+
+Last edited [Sabah Ul-Hasan]: Jul 29, 2019
+
+https://github.com/sabahzero/Ccalifornicus_Venom-Microbiome_16S-18S-Workflow_UlHasan-etal
+
+Contributors of data by order of contribution: SUH, JMS, EK, AFM, LP...
+Contributors of code by order of contribution: SUH, JMS, EK 
+
+Clean-up                lines 23-112
+Exploratory overview    lines 113-355
+  Supplemental figures
+Figure 1: Sample map    lines 357-430
+Figure 2: Env vs venom  lines 432-628
+Figure 3: Space vs time lines 630-996
+  Supplemental PCoAs          
+Figure 4: Heatmap       lines 998-1028
+
+Clean-up of Raw Data
+```{r}
+
+# Download package for downloading data from GitHub
+# install.packages("RCurl")
+library("RCurl")
+# packageVersion("RCurl") # v1.95.4.12 
+
+Metadata <- read.csv(text=getURL("https://raw.githubusercontent.com/sabahzero/Ccalifornicus_Venom-Microbiome_16S-18S-Workflow_UlHasan-etal/master/ASVs_Raw-Output_Adjusted/Metadata.csv"))
+
+# Samples with ASVs for both 16S and 18S after qiime2 and dada2 runs
+# Total ASVs meaning number of ASVs per sample with 97% identity or more
+# Originally 360 samples between 16S and 18S (180 per iTAG), now 348
+# Note that Buffers have been removed from metadata set, but raw in raw ASV files
+
+# Upload raw ASV data *raw only of samples found between 16S and 18S, above 97% identity
+Raw_16S <- read.csv(text=getURL("https://raw.githubusercontent.com/sabahzero/Ccalifornicus_Venom-Microbiome_16S-18S-Workflow_UlHasan-etal/master/ASVs_Raw-Output_Adjusted/16S_ASV-Raw.csv"))
+Raw_18S <- read.csv(text=getURL("https://raw.githubusercontent.com/sabahzero/Ccalifornicus_Venom-Microbiome_16S-18S-Workflow_UlHasan-etal/master/ASVs_Raw-Output_Adjusted/18S_ASV-Raw.csv"))
+# More ASV observations for 16S than 18S (this makes sense), about two-fold
+# This is true (more ASVs) both before and after filter to 97% confidence
+# We may want to look at these as separate more in-depth, but for now we will focus on which samples have results for both
+
+# Subtract buffer controls from 16S and 18S, proportion
+# install.packages("dplyr")
+library(dplyr)
+# packageVersion("dplyr") # v0.8.3
+
+# Substract buffer reads from all columns
+# 16S: SUH215, SUH395
+Buffer16 <- data.frame((Raw_16S[,2] + Raw_16S[,93])/2) # Create an average of both buffers
+names(Buffer16)[1] <- "Buffer-Control_Avg"
+
+Reads_16S <- subset(Raw_16S, select = -c(1,2,93)) # Keep reads only, remove buffers
+NoBuffer16 <- Reads_16S[,] - Buffer16[,1] # Subtract Buffer
+NoBuffer16[NoBuffer16<3]=0 # Remove singletons and doubletons, make all negatives = 0 
+
+Sum16 <- data.frame(colSums(NoBuffer16[,])) # Sum reads for each column
+# Get rid of any below 1397
+# SUH402, SUH448, SUH480, SUH398, SUH412, SUH466, SUH468, SUH397, SUH464, SUH453, SUH421, SUH411, SUH429
+Clean_16S <- within(NoBuffer16,rm("SUH402", "SUH448", "SUH480", "SUH398", "SUH412", "SUH466", "SUH468", "SUH397", "SUH464", "SUH453", "SUH421", "SUH411", "SUH429"))
+Clean_16S <- as.data.frame(lapply(Clean_16S, function(x) x/sum(x,na.rm=TRUE)))*1397
+head(colSums((Clean_16S))) # validation check to confirm above proportioned to 1397
+Clean_16S <- bind_cols(data.frame(Raw_16S[,1]), Clean_16S) # Add ASVs names back
+names(Clean_16S)[1] <- "ASV"
+
+# 18S: SUH124, SUH307
+Buffer18 <- data.frame((Raw_18S[,2] + Raw_18S[,93])/2)
+names(Buffer18)[1] <- "Buffer-Control_Avg"
+
+Reads_18S <- subset(Raw_18S, select = -c(1,2,93)) 
+NoBuffer18 <- Reads_18S[,] - Buffer18[,1] 
+NoBuffer18[NoBuffer18<3]=0 
+
+Sum18 <- data.frame(colSums(NoBuffer18[,])) # Sum reads for each column
+
+# Get rid of any below 1023
+Less18 <- subset(Sum18, colSums.NoBuffer18..... < 1023) # too many to view manually, list
+Less18
+# SUH128, SUH148, SUH150, SUH155, SUH158, SUH180, SUH198, SUH308, SUH309, SUH310, SUH311, SUH315, SUH320, SUH322, SUH323, SUH324, SUH328, SUH329, SUH330, SUH337, SUH365, SUH366, SUH372, SUH374, SUH375, SUH376, SUH377, SUH378 
+Clean_18S <- within(NoBuffer18,rm("SUH128", "SUH148", "SUH150", "SUH155", "SUH158", "SUH180", "SUH198", "SUH308", "SUH309", "SUH310", "SUH311", "SUH315", "SUH320", "SUH322", "SUH323", "SUH324", "SUH328", "SUH329", "SUH330", "SUH337", "SUH365", "SUH366", "SUH372", "SUH374", "SUH375", "SUH376", "SUH377", "SUH378"))
+Clean_18S <- as.data.frame(lapply(Clean_18S, function(x) x/sum(x,na.rm=TRUE)))*1023
+head(colSums((Clean_18S))) # validation check to confirm above proportioned to 1023
+Clean_18S <- bind_cols(data.frame(Raw_18S[,1]), Clean_18S) 
+names(Clean_18S)[1] <- "ASV"
+
+# Make lists of bad samples to remove from clean such that 16S and 18S have same #
+Bad_16S <- data.frame(c("SUH402", "SUH448", "SUH480", "SUH398", "SUH412", "SUH466", "SUH468", "SUH397", "SUH464", "SUH453", "SUH421", "SUH411", "SUH429"))
+names(Bad_16S)[1] <- "SampleID"
+Bad_16S <- merge(Bad_16S, Metadata, by = "SampleID") 
+
+Bad_18S <- data.frame(c("SUH128", "SUH148", "SUH150", "SUH155", "SUH158", "SUH180", "SUH198", "SUH308", "SUH309", "SUH310", "SUH311", "SUH315", "SUH320", "SUH322", "SUH323", "SUH324", "SUH328", "SUH329", "SUH330", "SUH337", "SUH365", "SUH366", "SUH372", "SUH374", "SUH375", "SUH376", "SUH377", "SUH378"))
+names(Bad_18S)[1] <- "SampleID"
+Bad_18S <- merge(Bad_18S, Metadata, by = "SampleID") 
+
+Bad_Shared <- merge(Bad_16S, Bad_18S, by = "Sample_Name") # 14 shared of 41 (27 not shared)
+Bad_16S_Unique <- anti_join(Bad_16S, Bad_18S, by = "Sample_Name") # 6
+Bad_18S_Unique <- anti_join(Bad_18S, Bad_16S, by = "Sample_Name") # 21
+Bad_All <- bind_rows(Bad_Shared, Bad_16S_Unique, Bad_18S_Unique)
+
+Metadata_Clean <- anti_join(Metadata, Bad_All, by = "Sample_Name") # Keeps samples that are the same across 16S and 18S with good ASVs
+# We keep 280 of original 348 after clean-up 
+# Loss of 68 for 16S and 18S, or 34 unique samples of total 174 (20% loss)
+
+# Save cleaned up files (what we want to use + taxa files with 97% identity)
+write.csv(Clean_16S, "16S_ASV-Clean.csv") 
+write.csv(Clean_18S, "18S_ASV-Clean.csv")
+write.csv(Metadata_Clean, "Metadata-Clean.csv") 
+
+```
+
+Exploratory overview of data using the ampvis package
+```{r}
+
+# Upload clean data (we have also produced this in the previous step) and taxa tables
+# Note that your tables should match with what is available through Github
+Clean_Metadata <- read.csv(text=getURL("https://raw.githubusercontent.com/sabahzero/Ccalifornicus_Venom-Microbiome_16S-18S-Workflow_UlHasan-etal/master/ASVs_Clean-Output_Workflow/Metadata-Clean.csv"))
+Clean_16S <- read.csv(text=getURL("https://raw.githubusercontent.com/sabahzero/Ccalifornicus_Venom-Microbiome_16S-18S-Workflow_UlHasan-etal/master/ASVs_Clean-Output_Workflow/16S_ASV-Clean.csv"))
+Clean_18S <- read.csv(text=getURL("https://raw.githubusercontent.com/sabahzero/Ccalifornicus_Venom-Microbiome_16S-18S-Workflow_UlHasan-etal/master/ASVs_Clean-Output_Workflow/18S_ASV-Clean.csv"))
+Taxa_16S <- read.csv(text=getURL("https://raw.githubusercontent.com/sabahzero/Ccalifornicus_Venom-Microbiome_16S-18S-Workflow_UlHasan-etal/master/ASVs_Clean-Output_Workflow/16S_Taxa-97.csv"))
+Taxa_18S <- read.csv(text=getURL("https://raw.githubusercontent.com/sabahzero/Ccalifornicus_Venom-Microbiome_16S-18S-Workflow_UlHasan-etal/master/ASVs_Clean-Output_Workflow/18S_Taxa-97.csv")) # *need to fix [more columns than taxa category]
+
+# Install ampvis2 [ggplot2 needed]
+# install.packages("ggplot2")
+library(ggplot2)
+# packageVersion("ggplot2") # v3.2.0
+
+# install.packages("remotes")
+# remotes::install_github("madsalbertsen/ampvis2@*release")
+library(ampvis2)
+# packageVersion("ampvis2") # v2.3.19
+
+# Change names of ASVs to OTUs for ampvis2
+# install.packages("tidyverse")
+library(tidyverse)
+# packageVersion("tidyverse") # v1.2.1
+
+names(Clean_16S)[1] <- "OTU"
+names(Taxa_16S)[1] <- "OTU"
+
+names(Clean_18S)[1] <- "OTU"
+names(Taxa_18S)[1] <- "OTU"
+
+# Set up 16S and 18S
+meta16 <- subset(Clean_Metadata, Primer == "16S_V4")
+taxa16 <- Taxa_16S[,c(1,4:10)] # Manually identify 'OTU' and Taxa columns (Kingdom - Species)
+ampvis16 <- merge(Clean_16S, taxa16, by = "OTU" )
+
+meta18 <- subset(Clean_Metadata, Primer == "18S")
+taxa18 <- Taxa_18S[,c(1,3:9)] 
+ampvis18 <- merge(Clean_18S, taxa18, by = "OTU" )
+
+# We will need cowplot for putting images together as figures
+# install.packages("cowplot")
+library(cowplot)
+# packageVersion("cowplot") # v1.0.0
+
+# 1. How much does the microbial community vary between seawater, sediment, and host venom?
+# Venom = whole venom gland
+# There seems to be significant variation by environment versus venom, should test how much this may vary by location and time
+Env = c("Seawater", "Sediment", "Egg_Laid", "Larva", "Venom")
+
+Env_meta16 = meta16 %>% filter(Environment_vs_Host %in% Env) 
+Env16 = amp_load(otutable = ampvis16,
+                 metadata = Env_meta16) 
+PCoA_Env16 = amp_ordinate(Env16, 
+             type = "pcoa",
+             distmeasure = "bray", # Bray-Curtis
+             sample_color_by = "Environment_vs_Host",
+             sample_colorframe = TRUE,
+             sample_colorframe_label = "Environment_vs_Host") + theme(legend.position = "right")
+
+Env_meta18 = meta18 %>% filter(Environment_vs_Host %in% Env) 
+Env18 = amp_load(otutable = ampvis18,
+                 metadata = Env_meta18) 
+PCoA_Env18 = amp_ordinate(Env18, 
+             type = "pcoa",
+             distmeasure = "bray", # Bray-Curtis
+             sample_color_by = "Environment_vs_Host",
+             sample_colorframe = TRUE,
+             sample_colorframe_label = "Environment_vs_Host") + theme(legend.position = "right")
+
+Env_vs_Ven <- plot_grid(PCoA_Env16, PCoA_Env18, labels = c('16S', '18S'), label_size = 10)
+Env_vs_Ven
+
+# 2. How much does the venom microbial community vary across space and time?
+# There isn't variation by location for 16S, but there is for 18S
+# There isn't variation by time for 16S, but for 18S there seems to be wider community variation for summer than winter (with little difference by day or year) could this be related to parasites / infectious disease or plant life?
+Ven = c("Venom") # Now we will only filter for Venom from the wild
+
+Wild_meta16 = meta16 %>% filter(Environment_vs_Host %in% Ven) 
+Wild16 = amp_load(otutable = ampvis16,
+                 metadata = Wild_meta16[!(is.na(Wild_meta16$WT_Location) | Wild_meta16$WT_Location==""),]) # This filter for only WT locations and time points such that we can see location and time simulatneously
+PCoA_Wild16 = amp_ordinate(Wild16, 
+             type = "pcoa",
+             distmeasure = "bray", # Bray-Curtis
+             sample_color_by = "WT_Location",
+             sample_shape_by = "WT_Time",
+             sample_colorframe = TRUE,
+             sample_colorframe_label = "WT_Location") + theme(legend.position = "right")
+
+Wild_meta18 = meta18 %>% filter(Environment_vs_Host %in% Ven) 
+Wild18 = amp_load(otutable = ampvis18,
+                 metadata = Wild_meta18[!(is.na(Wild_meta18$WT_Location) | Wild_meta18$WT_Location==""),]) # This filter for only WT locations and time points such that we can see location and time simulatneously
+PCoA_Wild18 = amp_ordinate(Wild18, 
+             type = "pcoa",
+             distmeasure = "bray", # Bray-Curtis
+             sample_color_by = "WT_Location",
+             sample_shape_by = "WT_Time",
+             sample_colorframe = TRUE,
+             sample_colorframe_label = "WT_Location") + theme(legend.position = "right")
+
+# For time, it's best to compare across Puerto Nuevo
+PN = c("PN_Sheltered", "PN_Minor", "PN_Major") 
+
+Time_meta16 = Wild_meta16 %>% filter(WT_Location %in% PN) # filter on top of wild type for venom
+
+Tim16 = amp_load(otutable = ampvis16,
+                 metadata = Time_meta16[!(is.na(Time_meta16$WT_Time) | Time_meta16$WT_Time==""),]) # This filter for only WT locations and time points such that we can see location and time simulatneously
+PCoA_Time16 = amp_ordinate(Tim16, 
+             type = "pcoa",
+             distmeasure = "bray", # Bray-Curtis
+             sample_color_by = "WT_Time",
+             sample_shape_by = "WT_Location",
+             sample_colorframe = TRUE,
+             sample_colorframe_label = "WT_Time") + theme(legend.position = "right")
+
+Time_meta18 = Wild_meta18 %>% filter(WT_Location %in% PN) # filter on top of wild type for venom
+
+Tim18 = amp_load(otutable = ampvis18,
+                 metadata = Time_meta18[!(is.na(Time_meta18$WT_Time) | Time_meta18$WT_Time==""),]) # This filter for only WT locations and time points such that we can see location and time simulatneously
+PCoA_Time18 = amp_ordinate(Tim18, 
+             type = "pcoa",
+             distmeasure = "bray", # Bray-Curtis
+             sample_color_by = "WT_Time",
+             sample_shape_by = "WT_Location",
+             sample_colorframe = TRUE,
+             sample_colorframe_label = "WT_Time") + theme(legend.position = "right")
+
+Space_vs_Time <- plot_grid(PCoA_Wild16, PCoA_Wild18, PCoA_Time16, PCoA_Time18, labels = c('16S', '18S', '16S', '18S'), label_size = 10)
+Space_vs_Time
+
+# 3. How much does the venom microbial community vary between wildtype (natural), captive-a (exposure to WT seawater), and captive-b (exposure to sterile seawater)?
+# There is some variation, test significance
+
+Cap = c("Venom_NaturalControl", "Venom_Sterile", "Venom_WT") # Exclude Seawater_WT since it's extremely different than venom
+
+Cap_meta16 = meta16 %>% filter(Wild_vs_Captive %in% Cap) 
+Cap16 = amp_load(otutable = ampvis16,
+              metadata = Cap_meta16) 
+PCoA_Cap16 =amp_ordinate(Cap16, 
+             type = "pcoa",
+             distmeasure = "bray", # Bray-Curtis
+             sample_color_by = "Wild_vs_Captive",
+             sample_colorframe = TRUE,
+             sample_colorframe_label = "Wild_vs_Captive") + theme(legend.position = "right")
+
+Cap_meta18 = meta18 %>% filter(Wild_vs_Captive %in% Cap) 
+Cap18 = amp_load(otutable = ampvis18,
+              metadata = Cap_meta18) 
+PCoA_Cap18 =amp_ordinate(Cap18, 
+             type = "pcoa",
+             distmeasure = "bray", # Bray-Curtis
+             sample_color_by = "Wild_vs_Captive",
+             sample_colorframe = TRUE,
+             sample_colorframe_label = "Wild_vs_Captive") + theme(legend.position = "right")
+
+Wild_vs_Cap <- plot_grid(PCoA_Cap16, PCoA_Cap18, labels = c('16S', '18S'), label_size = 10)
+Wild_vs_Cap
+
+# 4a. Does the microbial community vary by animal tissue? 
+# Seawater extremely different from all
+# Yes, and venom gland compartments cluster away from the rest of the animal tissues but not good reproducibility (samples filtered out in clean-up)
+# 4b. How much variation is there by individual?
+# There does seem to be some variation by indiviaul, need to test stats
+# 4c. Does the microbioal community vary by venom gland compartment? 
+# Note that Natural Control means a whole venom gland from the wild
+# Distal is closest to the pharynx and where conotoxin activity occurs
+# For 16S, the distal and wild venom gland microbial communities seems more specialized and distinct from the rest. This also seems true for 18S, with the addition of the proximal microbial community. Test statistics
+Indv16 = amp_load(otutable = ampvis16,
+                 metadata = meta16[!(is.na(meta16$Variation_By_Host) | meta16$Variation_By_Host==""),]) 
+PCoA_Indv16 = amp_ordinate(Indv16, 
+             type = "pcoa",
+             distmeasure = "bray", # Bray-Curtis
+             sample_color_by = "Variation_By_Host",
+             sample_shape_by = "Animal_Tissues",
+             sample_colorframe = TRUE,
+             sample_colorframe_label = "Variation_By_Host") + theme(legend.position = "right")
+
+Indv18 = amp_load(otutable = ampvis18,
+                 metadata = meta18[!(is.na(meta18$Variation_By_Host) | meta18$Variation_By_Host==""),]) 
+PCoA_Indv18 = amp_ordinate(Indv18, 
+             type = "pcoa",
+             distmeasure = "bray", # Bray-Curtis
+             sample_color_by = "Variation_By_Host",
+             sample_shape_by = "Animal_Tissues",
+             sample_colorframe = TRUE,
+             sample_colorframe_label = "Variation_By_Host") + theme(legend.position = "right")
+
+Gland = c("Venom_NaturalControl", "Venom_WT", "Venom_Bulb", "Venom_Distal", "Venom_Proximal") 
+
+Gland_meta16 = meta16 %>% filter(Venom_Compartments %in% Gland) 
+Gland16 = amp_load(otutable = ampvis16,
+                 metadata = Gland_meta16) 
+PCoA_Gland16 = amp_ordinate(Gland16, 
+             type = "pcoa",
+             distmeasure = "bray", # Bray-Curtis
+             sample_color_by = "Venom_Compartments",
+             sample_colorframe = TRUE,
+             sample_colorframe_label = "Venom_Compartments") + theme(legend.position = "right")
+
+Gland_meta18 = meta18 %>% filter(Venom_Compartments %in% Gland) 
+Gland18 = amp_load(otutable = ampvis18,
+                 metadata = Gland_meta18) 
+PCoA_Gland18 = amp_ordinate(Gland18, 
+             type = "pcoa",
+             distmeasure = "bray", # Bray-Curtis
+             sample_color_by = "Venom_Compartments",
+             sample_colorframe = TRUE,
+             sample_colorframe_label = "Venom_Compartments") + theme(legend.position = "right")
+
+Venom_Gland <- plot_grid(PCoA_Indv16, PCoA_Indv18, PCoA_Gland16, PCoA_Gland18, labels = c('16S', '18S', '16S', '18S'), label_size = 10)
+Venom_Gland 
+
+# 5. How much variation is there for lab experiments?
+# Seawater separates from the venom for both 16S and 18S, removed
+# Not much variation for 16S (see porportion of variance as well), but lots of variation for 18S
+# Some variation by experiment (antibiotic treatment, depth, prey exposure)
+Exp = c("15PSI_Venom", "100PSI_Venom", "300PSI_Venom", "Venom_PreyExposure", "Venom_Tetracycline", "Venom_Sterile", "Venom_WT", "Venom_NaturalControl")
+
+Exp_meta16 = meta16 %>% filter(invivo_Treatment %in% Exp) 
+Exp16 = amp_load(otutable = ampvis16,
+                 metadata = Exp_meta16) 
+PCoA_Exp16 = amp_ordinate(Exp16, 
+             type = "pcoa",
+             distmeasure = "bray", # Bray-Curtis
+             sample_color_by = "invivo_Treatment",
+             sample_colorframe = TRUE,
+             sample_colorframe_label = "invivo_Treatment") + theme(legend.position = "right")
+
+Exp_meta18 = meta18 %>% filter(invivo_Treatment %in% Exp) 
+Exp18 = amp_load(otutable = ampvis18,
+                 metadata = Exp_meta18) 
+PCoA_Exp18 = amp_ordinate(Exp18, 
+             type = "pcoa",
+             distmeasure = "bray", # Bray-Curtis
+             sample_color_by = "invivo_Treatment",
+             sample_colorframe = TRUE,
+             sample_colorframe_label = "invivo_Treatment") + theme(legend.position = "right")
+
+Experiments <- plot_grid(PCoA_Exp16, PCoA_Exp18, labels = c('16S', '18S'), label_size = 10)
+Experiments
+
+```
+
+Figure 1: Overview of sampling (map)
+```{r}
+
+# Create dataframe of total venom glands per site sampled for this study for map
+# Note these are post data clean-up, so number is lower
+group = c("Group.1", "Latitude", "Longitude")
+Sites <- aggregate(meta16, # We only want specimens counted once
+                  by = list(meta16$Gland_Sites),
+                  FUN = mean) %>% 
+  select(group) 
+Sites <- Sites[-c(1,2),]
+names(Sites)[1] <- "Gland_Sites"
+count = data.frame(c(5,4,19,4,43)) # Create data frame based on total count per site
+Sites <- bind_cols(Sites, count)
+names(Sites)[4] <- "Gland_Count"
+sum(Sites$Gland_Count) # 75 glands in total
+Sites <- Sites[c(1,5,4,2,3),]  # or just df[2:1,] # re-order sites from North to South
+
+# install.packages("ggplot2")
+library("ggplot2")
+# packageVersion("ggplot2") # v3.2.0
+# devtools::install_github("dkahle/ggmap") 
+library("ggmap")
+# packageVersion("ggmap") # v3.0.0.901
+# install.packages("rgdal")
+library("rgdal")
+# packageVersion("rgdal") # v1.4.4
+
+# This code is personalized by account and only runs if you have a key
+# Instructions:https://github.com/dkahle/ggmap
+# Visit your personal Google Maps Platform to retrieve key if you have one
+# ggmap::register_google(key = " ") 
+
+# Load polygons for ecoregions and call them after downloaded in your folder 
+# shape files from http://www.marineregions.org/ (also in repo)
+NC_poly=readOGR( "northern_ecoregions" , layer="ecoregions") 
+SCB_poly=readOGR( "southern_ecoregions" , layer="ecoregions") 
+
+# Parameters for All points
+All_bbox <- make_bbox(lat = Latitude, lon = Longitude, data = Clean_Metadata)
+All_bbox
+#     left        bottom      right         top 
+#     -122.1375   32.0320     -116.6925     36.8280 
+
+All=get_map(location=c(-125,30,-105,38), # adjust to include regions
+            zoom = 5, 
+            maptype = "satellite") 
+
+# Plot map
+Figure1_map = ggmap(All) +
+  geom_polygon(data = NC_poly, aes(x = long, y = lat),
+               fill = "white", alpha = 0.4) + # white
+  geom_polygon(data = SCB_poly, aes(x = long, y = lat),
+               fill = "black", alpha = 0.8) + # blue
+  geom_point(data = Sites, 
+             aes(x = Longitude, y = Latitude, size = Gland_Count),
+             color = "red",
+             alpha = 0.4) +
+  scale_size(range = c(2,12)) # Adjusts sizes of circles
+Figure1_map
+ggsave("Figure1_California-Baja-Map.png", dpi = 800)
+
+# Table output with map
+meta16$M
+# Monterey: 3 venom, 2 egg
+# LA: 1 egg laid
+# San Diego: 39 venom, 2 egg laid, 1 egg internal, 1 larva
+# PN Major: 4 venom
+# PN Minor: 19 venom
+# PN Sheltered: 4 venom
+# *need to fix map and table later
+# 69 animals total
+
+```
+
+Figure 2: Environment vs venom (PCoAs and bar charts)
+```{r}
+
+# install.packages("phyloseq")
+library(phyloseq)
+# packageVersion("phyloseq") # v1.24.2
+
+# install.packages("vegan")
+library(vegan) # for PERMANOVA
+# packageVersion("vegan") # v2.5.3
+
+# Environment vs Host (media type)
+
+# Data prep
+# This column (Environment_vs_Host) is only wildtype 
+Env = c("Seawater", "Sediment", "Venom")
+
+# 16S
+phylometa16 <- sample_data(meta16 %>% filter(Environment_vs_Host %in% Env))
+sample_names(phylometa16) <- phylometa16$SampleID
+data_16S <- phyloseq(otu_table(Clean_16S[,c(2:162)], taxa_are_rows = T),
+                     tax_table(Taxa_16S[,c(4:10)]),
+                     phylometa16)
+colnames(tax_table(data_16S)) <- c("Domain", "Phylum", "Class", "Order", "Family", "Genus", "Species")
+
+# 18S
+phylometa18 <- sample_data(meta18 %>% filter(Environment_vs_Host %in% Env))
+sample_names(phylometa18) <- phylometa18$SampleID
+data_18S <- phyloseq(otu_table(Clean_18S[,c(2:147)], taxa_are_rows = T),
+                     tax_table(Taxa_18S[,c(3:9)]),
+                     phylometa18)
+colnames(tax_table(data_18S)) <- c("Domain", "Phylum", "Class", "Order", "Family", "Genus", "Species")
+
+# Statistics: We want to determine if the microbial communities differ by environment
+# PERMANOVA 
+df.16 <- data.frame(sample_data(data_16S)) 
+dist.16 <- phyloseq::distance(data_16S, "bray") # Bray-Curtis
+x <- adonis(dist.16 ~ Environment_vs_Host, data = df.16)
+x # Significant by environment type (p = 0.001)
+# Comparison of environment categories
+df.VS = df.16[which(df.16$Environment_vs_Host == "Seawater" | df.16$Environment_vs_Host == "Venom"),]
+dist.VS <- phyloseq::distance(subset_samples(data_16S, Environment_vs_Host %in% c("Seawater", "Venom")), "bray")
+a <- adonis(dist.VS ~ Environment_vs_Host, data = df.VS)
+a # Significant difference between Venom and Seawater (0.001)
+df.VSed = df.16[which(df.16$Environment_vs_Host == "Sediment" | df.16$Environment_vs_Host == "Venom"),]
+dist.VSed <- phyloseq::distance(subset_samples(data_16S, Environment_vs_Host %in% c("Sediment", "Venom")), "bray")
+b <- adonis(dist.VSed ~ Environment_vs_Host, data = df.VSed)
+b # Significant difference between Venom and Sediment (0.001)
+df.SS = df.16[which(df.16$Environment_vs_Host == "Sediment" | df.16$Environment_vs_Host == "Seawater"),]
+dist.SS <- phyloseq::distance(subset_samples(data_16S, Environment_vs_Host %in% c("Sediment", "Seawater")), "bray")
+c <- adonis(dist.SS ~ Environment_vs_Host, data = df.SS)
+c # Significant difference between Seawater and Sediment (0.001)
+
+df.18 <- data.frame(sample_data(data_18S)) 
+dist.18 <- phyloseq::distance(data_18S, "bray") # Bray-Curtis
+x <- adonis(dist.18 ~ Environment_vs_Host, data = df.18)
+x # Significant by environment type (p = 0.001)
+# Comparison of environment categories
+df.VS = df.18[which(df.18$Environment_vs_Host == "Seawater" | df.18$Environment_vs_Host == "Venom"),]
+dist.VS <- phyloseq::distance(subset_samples(data_18S, Environment_vs_Host %in% c("Seawater", "Venom")), "bray")
+a <- adonis(dist.VS ~ Environment_vs_Host, data = df.VS)
+a # Significant difference between Venom and Seawater (0.001)
+df.VSed = df.18[which(df.18$Environment_vs_Host == "Sediment" | df.18$Environment_vs_Host == "Venom"),]
+dist.VSed <- phyloseq::distance(subset_samples(data_18S, Environment_vs_Host %in% c("Sediment", "Venom")), "bray")
+b <- adonis(dist.VSed ~ Environment_vs_Host, data = df.VSed)
+b # Significant difference between Venom and Sediment (0.001)
+df.SS = df.18[which(df.18$Environment_vs_Host == "Sediment" | df.18$Environment_vs_Host == "Seawater"),]
+dist.SS <- phyloseq::distance(subset_samples(data_18S, Environment_vs_Host %in% c("Sediment", "Seawater")), "bray")
+c <- adonis(dist.SS ~ Environment_vs_Host, data = df.SS)
+c # Significant difference between Seawater and Sediment (0.002)
+
+# Figure 1: Ordination plots and bar charts of abundance for major taxa
+# Adjust stat_ellipse function so n=3 or more for ellipse (n=4 before)
+stat_ellipse <- function(mapping = NULL, data = NULL,
+                         geom = "path", position = "identity",
+                         ...,
+                         type = "t",
+                         level = 0.95,
+                         segments = 51,
+                         na.rm = FALSE,
+                         show.legend = NA,
+                         inherit.aes = TRUE) {
+  layer(
+    data = data,
+    mapping = mapping,
+    stat = StatEllipse,
+    geom = geom,
+    position = position,
+    show.legend = show.legend,
+    inherit.aes = inherit.aes,
+    params = list(
+      type = type,
+      level = level,
+      segments = segments,
+      na.rm = na.rm,
+      ...
+    )
+  )
+}
+
+StatEllipse <- ggproto("StatEllipse", Stat,
+  required_aes = c("x", "y"),
+
+  compute_group = function(data, scales, type = "t", level = 0.95,
+                           segments = 51, na.rm = FALSE) {
+    calculate_ellipse(data = data, vars = c("x", "y"), type = type,
+                      level = level, segments = segments)
+  }
+)
+
+calculate_ellipse <- function(data, vars, type, level, segments){
+  dfn <- 2
+  dfd <- nrow(data) - 1
+
+  if (!type %in% c("t", "norm", "euclid")) {
+    message("Unrecognized ellipse type")
+    ellipse <- rbind(as.numeric(c(NA, NA)))
+  } else if (dfd < 2) { #dfd changed from 3 to 2
+    message("Too few points to calculate an ellipse")
+    ellipse <- rbind(as.numeric(c(NA, NA)))
+  } else {
+    if (type == "t") {
+      v <- MASS::cov.trob(data[,vars])
+    } else if (type == "norm") {
+      v <- stats::cov.wt(data[,vars])
+    } else if (type == "euclid") {
+      v <- stats::cov.wt(data[,vars])
+      v$cov <- diag(rep(min(diag(v$cov)), 2))
+    }
+    shape <- v$cov
+    center <- v$center
+    chol_decomp <- chol(shape)
+    if (type == "euclid") {
+      radius <- level/max(chol_decomp)
+    } else {
+      radius <- sqrt(dfn * stats::qf(level, dfn, dfd))
+    }
+    angles <- (0:segments) * 2 * pi/segments
+    unit.circle <- cbind(cos(angles), sin(angles))
+    ellipse <- t(center + radius * t(unit.circle %*% chol_decomp))
+  }
+
+  ellipse <- as.data.frame(ellipse)
+  colnames(ellipse) <- vars
+  ellipse
+}
+
+# 16S
+ordu.16S <- ordinate(data_16S, "PCoA", "bray", weighted = T)
+p.ord.16S <- phyloseq::plot_ordination(data_16S, ordu.16S)
+p.ord.16S # to get PCA 1 and PCA 2
+                                       
+plot_16S_ordination <- ggplot(p.ord.16S$data, p.ord.16S$mapping) +
+  stat_ellipse(geom = "polygon", aes(col = Environment_vs_Host, fill = Environment_vs_Host), alpha = 0.7) +
+    geom_point(data = p.ord.16S$data, aes(col = Environment_vs_Host, fill = Environment_vs_Host), size = 0.5) + 
+  scale_y_continuous(name = "PCoA 2 (5.8%)") +
+  scale_x_continuous(name = "PCoA 1 (11.2%)") +
+  theme(legend.position = "bottom", legend.title = element_blank(),
+        legend.text = element_text(size = 15),
+        axis.text = element_text(size = 10),
+        axis.title = element_text(size = 15))
+plot_16S_ordination
+ggsave("Figure1a_16S-MicrobialCommunities.png", dpi = 800)
+
+# 18S
+ordu.18S <- ordinate(data_18S, "PCoA", "bray", weighted = T)
+p.ord.18S <- phyloseq::plot_ordination(data_18S, ordu.18S)
+p.ord.18S # to get PCA 1 and PCA 2
+                                       
+plot_18S_ordination <- ggplot(p.ord.18S$data, p.ord.18S$mapping) +
+  stat_ellipse(geom = "polygon", aes(col = Environment_vs_Host, fill = Environment_vs_Host), alpha = 0.7) +
+    geom_point(data = p.ord.18S$data, aes(col = Environment_vs_Host, fill = Environment_vs_Host), size = 1) + 
+  scale_y_continuous(name = "PCoA 2 (11.1%)") +
+  scale_x_continuous(name = "PCoA 1 (39.1%)") +
+  theme(legend.position = "bottom", legend.title = element_blank(),
+        legend.text = element_text(size = 15),
+        axis.text = element_text(size = 10),
+        axis.title = element_text(size = 15))
+plot_18S_ordination
+ggsave("Figure1b_18S-MicrobialCommunities.png", dpi = 800)
+
+# Bar charts (top 10 for venom)
+top10 <- names(sort(taxa_sums(subset_samples(data_16S, Environment_vs_Host %in% c("Venom"))), decreasing=TRUE))[1:10]
+ps.top10 <- transform_sample_counts(subset_samples(data_16S, Environment_vs_Host %in% c("Venom")), function(OTU) OTU/sum(OTU))
+ps.top10 <- prune_taxa(top10, ps.top10)
+plot_bar(ps.top10, x="Gland_Sites", fill="Family") +
+  facet_wrap(~Environment_vs_Host, scales="free_x")
+ggsave("Figure1c_16S-Venom-Top10Families.png", dpi = 800)
+
+top10 <- names(sort(taxa_sums(subset_samples(data_18S, Environment_vs_Host %in% c("Venom"))), decreasing=TRUE))[1:10]
+ps.top10 <- transform_sample_counts(subset_samples(data_18S, Environment_vs_Host %in% c("Venom")), function(OTU) OTU/sum(OTU))
+ps.top10 <- prune_taxa(top10, ps.top10)
+plot_bar(ps.top10, x="Gland_Sites", fill="Family") +
+  facet_wrap(~Environment_vs_Host, scales="free_x")
+ggsave("Figure1d_18S-Venom-Top10Families.png", dpi = 800)
+
+```
+
+Figure 3: Venom microbial community across space and time (DESeq + Supp PCoAs)
+```{r}
+
+# This figure, like Figure 2, will also use phyloseq
+
+# Data prep
+# We are going to select for wildtype venom only from the Environment_vs_Host column
+Venom = c("Venom")
+Space = c("MB", "SD", "PN_Sheltered", "PN_Minor", "PN_Major") # ordered north to south
+
+# 16S
+phylometa16 <- sample_data(meta16 %>% filter(Environment_vs_Host %in% Venom)
+                           %>% filter(WT_Location %in% Space))
+sample_names(phylometa16) <- phylometa16$SampleID
+data_16S <- phyloseq(otu_table(Clean_16S[,c(2:162)], taxa_are_rows = T),
+                     tax_table(Taxa_16S[,c(4:10)]),
+                     phylometa16)
+colnames(tax_table(data_16S)) <- c("Domain", "Phylum", "Class", "Order", "Family", "Genus", "Species")
+
+# 18S
+phylometa18 <- sample_data(meta18 %>% filter(Environment_vs_Host %in% Venom)
+                           %>% filter(WT_Location %in% Space))
+sample_names(phylometa18) <- phylometa18$SampleID
+data_18S <- phyloseq(otu_table(Clean_18S[,c(2:147)], taxa_are_rows = T),
+                     tax_table(Taxa_18S[,c(3:9)]),
+                     phylometa18)
+colnames(tax_table(data_18S)) <- c("Domain", "Phylum", "Class", "Order", "Family", "Genus", "Species")
+
+# Statistics: We want to determine if the microbial community differs across space / time
+# We want to test for: 
+# Space across summer 2017
+# Time for PN_Minor
+df.16 <- data.frame(sample_data(subset_samples(data_16S, WT_Time %in% "2017_Summer"))) 
+dist.16 <- phyloseq::distance((subset_samples(data_16S, WT_Time %in% "2017_Summer")), "bray") # Bray-Curtis
+x <- adonis(dist.16 ~ WT_Location, data = df.16)
+x # NOT significant by location (p = 0.056)
+
+df.16time <- data.frame(sample_data(subset_samples(data_16S, WT_Location %in% "PN_Minor"))) 
+dist.16time <- phyloseq::distance((subset_samples(data_16S, WT_Location %in% "PN_Minor")), "bray") # Bray-Curtis
+y <- adonis(dist.16time ~ WT_Time, data = df.16time)
+y # NOT significant by time (p = 0.302)
+
+df.18 <- data.frame(sample_data(subset_samples(data_18S, WT_Time %in% "2017_Summer"))) 
+dist.18 <- phyloseq::distance((subset_samples(data_18S, WT_Time %in% "2017_Summer")), "bray") # Bray-Curtis
+x <- adonis(dist.18 ~ WT_Location, data = df.18)
+x # Significant by location (p = 0.019)
+
+df.18time <- data.frame(sample_data(subset_samples(data_18S, WT_Location %in% "PN_Minor"))) 
+dist.18time <- phyloseq::distance((subset_samples(data_18S, WT_Location %in% "PN_Minor")), "bray") # Bray-Curtis
+y <- adonis(dist.18time ~ WT_Time, data = df.18time)
+y # Significant by time (p = 0.038)
+
+# Supplemental Figure: Ordination plots across space and time
+ordu.16S <- ordinate(subset_samples(data_16S, WT_Time %in% "2017_Summer"), "PCoA", "bray", weighted = T)
+p.ord.16S <- phyloseq::plot_ordination(subset_samples(data_16S, WT_Time %in% "2017_Summer"), ordu.16S)
+p.ord.16S # to get PCA 1 and PCA 2
+                                       
+plot_16S_ordination <- ggplot(p.ord.16S$data, p.ord.16S$mapping) +
+  stat_ellipse(geom = "polygon", aes(col = WT_Location), alpha = 0.3) +
+    geom_point(data = p.ord.16S$data, aes(col = WT_Location), size = 0.5) + 
+  scale_y_continuous(name = "PCoA 2 (8.4%)") +
+  scale_x_continuous(name = "PCoA 1 (8.7%)") +
+  theme(legend.position = "bottom", legend.title = element_blank(),
+        legend.text = element_text(size = 15),
+        axis.text = element_text(size = 10),
+        axis.title = element_text(size = 15))
+plot_16S_ordination
+ggsave("SuppFiga_16S-MicrobialCommunities_VenomSpace.png", dpi = 800)
+
+ordu.16S <- ordinate(subset_samples(data_16S, WT_Location %in% "PN_Minor"), "PCoA", "bray", weighted = T)
+p.ord.16S <- phyloseq::plot_ordination(subset_samples(data_16S, WT_Location %in% "PN_Minor"), ordu.16S)
+p.ord.16S # to get PCA 1 and PCA 2
+                                       
+plot_16S_ordination <- ggplot(p.ord.16S$data, p.ord.16S$mapping) +
+  stat_ellipse(geom = "polygon", aes(col = WT_Time), alpha = 0.3) +
+    geom_point(data = p.ord.16S$data, aes(col = WT_Time), size = 0.5) + 
+  scale_y_continuous(name = "PCoA 2 (9.4%)") +
+  scale_x_continuous(name = "PCoA 1 (10%)") +
+  theme(legend.position = "bottom", legend.title = element_blank(),
+        legend.text = element_text(size = 15),
+        axis.text = element_text(size = 10),
+        axis.title = element_text(size = 15))
+plot_16S_ordination
+ggsave("SuppFigb_16S-MicrobialCommunities_VenomTime.png", dpi = 800)
+
+ordu.18S <- ordinate(subset_samples(data_18S, WT_Time %in% "2017_Summer"), "PCoA", "bray", weighted = T)
+p.ord.18S <- phyloseq::plot_ordination(subset_samples(data_18S, WT_Time %in% "2017_Summer"), ordu.18S)
+p.ord.18S # to get PCA 1 and PCA 2
+                                       
+plot_18S_ordination <- ggplot(p.ord.18S$data, p.ord.18S$mapping) +
+  stat_ellipse(geom = "polygon", aes(col = WT_Location), alpha = 0.3) +
+    geom_point(data = p.ord.18S$data, aes(col = WT_Location), size = 0.5) + 
+  scale_y_continuous(name = "PCoA 2 (16.8%)") +
+  scale_x_continuous(name = "PCoA 1 (57.3%)") +
+  theme(legend.position = "bottom", legend.title = element_blank(),
+        legend.text = element_text(size = 15),
+        axis.text = element_text(size = 10),
+        axis.title = element_text(size = 15))
+plot_18S_ordination
+ggsave("SuppFigc_18S-MicrobialCommunities_VenomSpace.png", dpi = 800)
+
+ordu.18S <- ordinate(subset_samples(data_18S, WT_Location %in% "PN_Minor"), "PCoA", "bray", weighted = T)
+p.ord.18S <- phyloseq::plot_ordination(subset_samples(data_18S, WT_Location %in% "PN_Minor"), ordu.18S)
+p.ord.18S # to get PCA 1 and PCA 2
+                                       
+plot_18S_ordination <- ggplot(p.ord.18S$data, p.ord.18S$mapping) +
+  stat_ellipse(geom = "polygon", aes(col = WT_Time), alpha = 0.3) +
+    geom_point(data = p.ord.18S$data, aes(col = WT_Time), size = 0.5) + 
+  scale_y_continuous(name = "PCoA 2 (19.7%)") +
+  scale_x_continuous(name = "PCoA 1 (49.7%)") +
+  theme(legend.position = "bottom", legend.title = element_blank(),
+        legend.text = element_text(size = 15),
+        axis.text = element_text(size = 10),
+        axis.title = element_text(size = 15))
+plot_18S_ordination
+ggsave("SuppFigd_18S-MicrobialCommunities_VenomTime.png", dpi = 800)
+
+# Figure 3: Differential expression by location and time
+# install.packages("DESeq2")
+library(DESeq2)
+# packageVersion("DESeq2") # v1.20.0
+
+# Convert all Puerto Nuevo Minor site time points to Summer or Winter 
+Fig3_16 <- meta16 %>% 
+  filter(Environment_vs_Host %in% Venom) %>% 
+  filter(WT_Location %in% Space)
+
+Fig3_18 <-meta18 %>% 
+  filter(Environment_vs_Host %in% Venom) %>% 
+  filter(WT_Location %in% Space)
+
+Fig3_16$WT_Time <- as.character(Fig3_16$WT_Time)
+Fig3_16$WT_Time[Fig3_16$WT_Time == "2016_Summer"] <- "Summer"
+Fig3_16$WT_Time[Fig3_16$WT_Time == "2017_Summer"] <- "Summer"
+Fig3_16$WT_Time[Fig3_16$WT_Time == "2016_Winter_Day1"] <- "Winter"
+Fig3_16$WT_Time[Fig3_16$WT_Time == "2016_Winter_Day2"] <- "Winter"
+Fig3_16$WT_Time[Fig3_16$WT_Time == "2016_Winter_Day3"] <- "Winter"
+Fig3_18$WT_Time <- as.character(Fig3_18$WT_Time)
+Fig3_18$WT_Time[Fig3_18$WT_Time == "2016_Summer"] <- "Summer"
+Fig3_18$WT_Time[Fig3_18$WT_Time == "2017_Summer"] <- "Summer"
+Fig3_18$WT_Time[Fig3_18$WT_Time == "2016_Winter_Day1"] <- "Winter"
+Fig3_18$WT_Time[Fig3_18$WT_Time == "2018_Winter_Day2"] <- "Winter"
+Fig3_18$WT_Time[Fig3_18$WT_Time == "2018_Winter_Day3"] <- "Winter"
+
+phyloFig3_16 <- sample_data(Fig3_16)
+sample_names(phyloFig3_16) <- phyloFig3_16$SampleID
+data_16S <- phyloseq(otu_table(Clean_16S[,c(2:162)], taxa_are_rows = T),
+                     tax_table(Taxa_16S[,c(4:10)]),
+                     phyloFig3_16)
+colnames(tax_table(data_16S)) <- c("Domain", "Phylum", "Class", "Order", "Family", "Genus", "Species")
+
+phyloFig3_18 <- sample_data(Fig3_18)
+sample_names(phyloFig3_18) <- phyloFig3_18$SampleID
+data_18S <- phyloseq(otu_table(Clean_18S[,c(2:147)], taxa_are_rows = T),
+                     tax_table(Taxa_18S[,c(3:9)]),
+                     phyloFig3_18)
+colnames(tax_table(data_18S)) <- c("Domain", "Phylum", "Class", "Order", "Family", "Genus", "Species")
+
+# Compare Summer against Winter
+subs <- subset_samples(data_16S, WT_Location == "PN_Minor")
+subs@otu_table <- subs@otu_table + 1
+data.deseq <- phyloseq_to_deseq2(subs, ~ WT_Time)
+data.deseq$WT_Time <- relevel(data.deseq$WT_Time, "Winter")
+diagdds <- DESeq(data.deseq, test = "Wald", fitType = "parametric", quiet = T) # Stat test
+res <- results(diagdds, cooksCutoff = FALSE) #results table
+alpha <- 0.05 #can change cutoff if needed
+sigtab.winter.summer <- as.data.frame(res[which(res$padj < alpha), ])
+sigtab.winter.summer$comparison <- "Winter vs Summer"
+sigtab.winter.summer$species <- row.names(sigtab.winter.summer)
+
+dif.abun.16S <- merge(sigtab.winter.summer, data_16S@tax_table, 
+                      by.x = "species", by.y = "row.names", all.x = T)
+
+Genus.sum = tapply(taxa_sums(data_16S), tax_table(data_16S)[, "Genus"], sum, na.rm=TRUE)
+top10Genus = names(sort(Genus.sum, TRUE))[1:10]
+top10Genus # Manually adjust
+
+plot_dif.abun_16S <- ggplot(dif.abun.16S %>% filter(Genus %in% top10Genus),
+                            aes(x = Genus, y = log2FoldChange, fill = Genus)) + 
+  geom_jitter(size = 5, alpha = 0.75, pch = 21, col = "black") +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  scale_x_discrete(breaks = NULL) +
+  scale_y_continuous(name = bquote("Change in abundance ("~log[2]*"-fold change)")) +
+  scale_fill_manual(values = c("#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", 
+                               "#8c564b", "#e377c2", "#7f7f7f", "#bcbd22", "#17becf"),
+                    labels = c("Unknown", "uncultured", "Ancylobacter", 
+                               "uncultured gamma proteobacterium", "uncultured bacterium",
+                               "Rubritalea", "Halomonas", "Chryseobacterium", 
+                               "Subgroup 23", "Vibrio")) +
+  theme(axis.text.x = element_blank(), axis.title.x = element_blank(),
+        legend.position = "right", legend.text = element_text(size = 10),
+        legend.title = element_text(size = 10),
+        strip.text = element_text(size = 10), axis.text = element_text(size = 10),
+        axis.title = element_text(size = 15))
+plot_dif.abun_16S
+ggsave("Figure3a_16S-Venom_DESeq-WintervsSummer.png", dpi = 800)
+
+subs <- subset_samples(data_18S, WT_Location == "PN_Minor")
+subs@otu_table <- subs@otu_table + 1
+data.deseq <- phyloseq_to_deseq2(subs, ~ WT_Time)
+data.deseq$WT_Time <- relevel(data.deseq$WT_Time, "Winter")
+diagdds <- DESeq(data.deseq, test = "Wald", fitType = "parametric", quiet = T) # Stat test
+res <- results(diagdds, cooksCutoff = FALSE) #results table
+alpha <- 0.05 #can change cutoff if needed
+sigtab.winter.summer <- as.data.frame(res[which(res$padj < alpha), ])
+sigtab.winter.summer$comparison <- "Winter vs Summer"
+sigtab.winter.summer$species <- row.names(sigtab.winter.summer)
+
+dif.abun.18S <- merge(sigtab.winter.summer, data_18S@tax_table, 
+                      by.x = "species", by.y = "row.names", all.x = T)
+
+Genus.sum = tapply(taxa_sums(data_18S), tax_table(data_18S)[, "Genus"], sum, na.rm=TRUE)
+top10Genus = names(sort(Genus.sum, TRUE))[1:10]
+top10Genus # Manually adjust
+
+plot_dif.abun_18S <- ggplot(dif.abun.18S %>% filter(Genus %in% top10Genus),
+                            aes(x = Genus, y = log2FoldChange, fill = Genus)) + 
+  geom_jitter(size = 5, alpha = 0.75, pch = 21, col = "black") +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  scale_x_discrete(breaks = NULL) +
+  scale_y_continuous(name = bquote("Change in abundance ("~log[2]*"-fold change)")) +
+  scale_fill_manual(values = c("#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", 
+                               "#8c564b", "#e377c2", "#7f7f7f", "#bcbd22", "#17becf"),
+                    labels = c("Bilateria", "Gregarinasina", "Unknown", 
+                               "uncultured marine eukaryote", "Bacillariophytina",
+                               "Coscinodiscophytina", "uncultured", "Gymnodiniphycidae",
+                               "Streptophyta", "Prorocentrales")) +
+  theme(axis.text.x = element_blank(), axis.title.x = element_blank(),
+        legend.position = "right", legend.text = element_text(size = 10),
+        legend.title = element_text(size = 10),
+        strip.text = element_text(size = 10), axis.text = element_text(size = 10),
+        axis.title = element_text(size = 15))
+plot_dif.abun_18S
+ggsave("Figure3b_18S-Venom_DESeq-WintervsSummer.png", dpi = 800)
+
+# Convert all Puerto Nuevo locations to Puerto Nuevo
+Fig3_16$WT_Location <- as.character(Fig3_16$WT_Location)
+Fig3_16$WT_Location[Fig3_16$WT_Location == "PN_Sheltered"] <- "PN"
+Fig3_16$WT_Location[Fig3_16$WT_Location == "PN_Minor"] <- "PN"
+Fig3_16$WT_Location[Fig3_16$WT_Location == "PN_Major"] <- "PN"
+Fig3_18$WT_Location <- as.character(Fig3_18$WT_Location)
+Fig3_18$WT_Location[Fig3_18$WT_Location == "PN_Sheltered"] <- "PN"
+Fig3_18$WT_Location[Fig3_18$WT_Location == "PN_Minor"] <- "PN"
+Fig3_18$WT_Location[Fig3_18$WT_Location == "PN_Major"] <- "PN"
+
+phyloFig3_16 <- sample_data(Fig3_16)
+sample_names(phyloFig3_16) <- phyloFig3_16$SampleID
+data_16S <- phyloseq(otu_table(Clean_16S[,c(2:162)], taxa_are_rows = T),
+                     tax_table(Taxa_16S[,c(4:10)]),
+                     phyloFig3_16)
+colnames(tax_table(data_16S)) <- c("Domain", "Phylum", "Class", "Order", "Family", "Genus", "Species")
+
+phyloFig3_18 <- sample_data(Fig3_18)
+sample_names(phyloFig3_18) <- phyloFig3_18$SampleID
+data_18S <- phyloseq(otu_table(Clean_18S[,c(2:147)], taxa_are_rows = T),
+                     tax_table(Taxa_18S[,c(3:9)]),
+                     phyloFig3_18)
+colnames(tax_table(data_18S)) <- c("Domain", "Phylum", "Class", "Order", "Family", "Genus", "Species")
+
+# Compare San Diego and Monterey against Puerto Nuevo (no differential abundance difference between San Diego against Monterey)
+subs <- subset_samples(data_16S, WT_Location == "PN" | WT_Location == "SD")
+subs@otu_table <- subs@otu_table + 1
+data.deseq <- phyloseq_to_deseq2(subs, ~ WT_Location)
+data.deseq$Location <- relevel(data.deseq$WT_Location, "PN")
+diagdds <- DESeq(data.deseq, test = "Wald", fitType = "parametric", quiet = T) # Stat test
+res <- results(diagdds, cooksCutoff = FALSE) #results table
+alpha <- 0.05 #can change cutoff if needed
+sigtab.PN.SD <- as.data.frame(res[which(res$padj < alpha), ])
+sigtab.PN.SD$comparison <- "Puerto Nuevo vs San Diego"
+sigtab.PN.SD$species <- row.names(sigtab.PN.SD)
+
+subs <- subset_samples(data_16S, WT_Location == "PN" | WT_Location == "MB")
+subs@otu_table <- subs@otu_table + 1
+data.deseq <- phyloseq_to_deseq2(subs, ~ WT_Location)
+data.deseq$Location <- relevel(data.deseq$WT_Location, "PN")
+diagdds <- DESeq(data.deseq, test = "Wald", fitType = "parametric", quiet = T) # Stat test
+res <- results(diagdds, cooksCutoff = FALSE) #results table
+alpha <- 0.05 #can change cutoff if needed
+sigtab.PN.MB <- as.data.frame(res[which(res$padj < alpha), ])
+sigtab.PN.MB$comparison <- "Puerto Nuevo vs Monterey"
+sigtab.PN.MB$species <- row.names(sigtab.PN.MB)
+
+dif.abun.16S <- rbind(sigtab.PN.SD, sigtab.PN.MB)
+
+dif.abun.16S <- merge(dif.abun.16S, data_16S@tax_table, 
+                      by.x = "species", by.y = "row.names", all.x = T)
+
+Genus.sum = tapply(taxa_sums(data_16S), tax_table(data_16S)[, "Genus"], sum, na.rm=TRUE)
+top10Genus = names(sort(Genus.sum, TRUE))[1:10]
+top10Genus # Manually adjust
+
+plot_dif.abun_16S <- ggplot(dif.abun.16S %>% filter(Genus %in% top10Genus),
+                            aes(x = Genus, y = log2FoldChange, fill = Genus)) + 
+  geom_jitter(size = 5, alpha = 0.75, pch = 21, col = "black") +
+  facet_grid(rows = vars(Depth)) +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  scale_x_discrete(breaks = NULL) +
+  scale_y_continuous(name = bquote("Change in abundance ("~log[2]*"-fold change)")) +
+  scale_fill_manual(values = c("#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", 
+                               "#8c564b", "#e377c2", "#7f7f7f", "#bcbd22", "#17becf"),
+                    labels = c("Unknown", "uncultured", "Ancylobacter", 
+                               "uncultured gamma proteobacterium", "uncultured bacterium",
+                               "Rubritalea", "Halomonas", "Chryseobacterium", 
+                               "Subgroup 23", "Vibrio")) +
+  theme(axis.text.x = element_blank(), axis.title.x = element_blank(),
+        legend.position = "right", legend.text = element_text(size = 7),
+        legend.title = element_text(size = 7),
+        strip.text = element_text(size = 7), axis.text = element_text(size = 7),
+        axis.title = element_text(size = 10)) +
+  facet_grid(.~comparison) 
+plot_dif.abun_16S
+ggsave("Figure3c_16S-Venom_DESeq-Locations.png", dpi = 800)
+
+subs <- subset_samples(data_18S, WT_Location == "PN" | WT_Location == "SD")
+subs@otu_table <- subs@otu_table + 1
+data.deseq <- phyloseq_to_deseq2(subs, ~ WT_Location)
+data.deseq$Location <- relevel(data.deseq$WT_Location, "PN")
+diagdds <- DESeq(data.deseq, test = "Wald", fitType = "parametric", quiet = T) # Stat test
+res <- results(diagdds, cooksCutoff = FALSE) #results table
+alpha <- 0.05 #can change cutoff if needed
+sigtab.PN.SD <- as.data.frame(res[which(res$padj < alpha), ])
+sigtab.PN.SD$comparison <- "Puerto Nuevo vs San Diego"
+sigtab.PN.SD$species <- row.names(sigtab.PN.SD)
+
+subs <- subset_samples(data_18S, WT_Location == "PN" | WT_Location == "MB")
+subs@otu_table <- subs@otu_table + 1
+data.deseq <- phyloseq_to_deseq2(subs, ~ WT_Location)
+data.deseq$Location <- relevel(data.deseq$WT_Location, "PN")
+diagdds <- DESeq(data.deseq, test = "Wald", fitType = "parametric", quiet = T) # Stat test
+res <- results(diagdds, cooksCutoff = FALSE) #results table
+alpha <- 0.05 #can change cutoff if needed
+sigtab.PN.MB <- as.data.frame(res[which(res$padj < alpha), ])
+sigtab.PN.MB$comparison <- "Puerto Nuevo vs Monterey"
+sigtab.PN.MB$species <- row.names(sigtab.PN.MB)
+
+dif.abun.18S <- rbind(sigtab.PN.SD, sigtab.PN.MB)
+
+dif.abun.18S <- merge(dif.abun.18S, data_18S@tax_table, 
+                      by.x = "species", by.y = "row.names", all.x = T)
+
+Genus.sum = tapply(taxa_sums(data_18S), tax_table(data_18S)[, "Genus"], sum, na.rm=TRUE)
+top10Genus = names(sort(Genus.sum, TRUE))[1:10]
+top10Genus # Manually adjust
+
+plot_dif.abun_18S <- ggplot(dif.abun.18S %>% filter(Genus %in% top10Genus),
+                            aes(x = Genus, y = log2FoldChange, fill = Genus)) + 
+  geom_jitter(size = 5, alpha = 0.75, pch = 21, col = "black") +
+  facet_grid(rows = vars(Depth)) +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  scale_x_discrete(breaks = NULL) +
+  scale_y_continuous(name = bquote("Change in abundance ("~log[2]*"-fold change)")) +
+  scale_fill_manual(values = c("#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", 
+                               "#8c564b", "#e377c2", "#7f7f7f", "#bcbd22", "#17becf"),
+                    labels = c("Bilateria", "Gregarinasina", "Unknown", 
+                               "uncultured marine eukaryote", "Bacillariophytina",
+                               "Coscinodiscophytina", "uncultured", "Gymnodiniphycidae",
+                               "Streptophyta", "Prorocentrales")) +
+  theme(axis.text.x = element_blank(), axis.title.x = element_blank(),
+        legend.position = "right", legend.text = element_text(size = 7),
+        legend.title = element_text(size = 7),
+        strip.text = element_text(size = 7), axis.text = element_text(size = 7),
+        axis.title = element_text(size = 10)) +
+  facet_grid(.~comparison) 
+plot_dif.abun_18S
+ggsave("Figure3d_18S-Venom_DESeq-Locations.png", dpi = 800)
+
+```
+
+Figure 4: Heatmap of Streptomyces and Stenotrophomonas ASVs across venom
+```{r}
+
+# Subset for Genera across all venom (not just wild): Streptomyces and Stenotrophomonas
+phylometa16 <- sample_data(meta16[!(is.na(meta16$Venom_Compartments) | meta16$Venom_Compartments==""), ])
+sample_names(phylometa16) <- phylometa16$SampleID
+data_16S <- phyloseq(otu_table(Clean_16S[,c(2:162)], taxa_are_rows = T),
+                     tax_table(Taxa_16S[,c(4:10)]),
+                     phylometa16)
+colnames(tax_table(data_16S)) <- c("Domain", "Phylum", "Class", "Order", "Family", "Genus", "Species")
+ggsave("SuppFiga_16S-MicrobialCommunities_VenomSpace.png", dpi = 800)
+
+heat16 <- subset_taxa(data_16S)
+heat16 <- prune_taxa(names(sort(taxa_sums(heat16),TRUE)[1:40]), heat16)
+plot_heatmap(heat16, "NMDS", "bray", "Venom_Compartments", sample.order = "Venom_Compartments", "Genus") # NMDS, Bray-Curtis
+ggsave("Figure4a_16S-Venom-Compartments_Heatmap.png", dpi = 800)
+
+phylometa18 <- sample_data(meta18[!(is.na(meta18$Venom_Compartments) | meta18$Venom_Compartments==""), ])
+sample_names(phylometa18) <- phylometa18$SampleID
+data_18S <- phyloseq(otu_table(Clean_18S[,c(2:147)], taxa_are_rows = T),
+                     tax_table(Taxa_18S[,c(3:9)]),
+                     phylometa18)
+colnames(tax_table(data_18S)) <- c("Domain", "Phylum", "Class", "Order", "Family", "Genus", "Species")
+
+heat18 <- subset_taxa(data_18S)
+heat18 <- prune_taxa(names(sort(taxa_sums(heat18),TRUE)[1:40]), heat18)
+plot_heatmap(heat18, "NMDS", "bray", "Venom_Compartments", sample.order = "Venom_Compartments", "Species")
+ggsave("Figure4b_18S-Venom-Compartments_Heatmap.png", dpi = 800)
+
+```
+
+Load from local 
+```{r}
+
+setwd("~/Desktop/Dissertation/Manuscripts_Done-or-Submitted/Venom-MIcrobiome/Jul18-2019/")
+
+Clean_Metadata <- read.csv("Metadata-Clean.csv")
+Clean_16S <- read.csv("16S_ASV-Clean.csv")
+Clean_18S <- read.csv("18S_ASV-Clean.csv")
+Taxa_16S <- read.csv("16S_Taxa-97.csv")
+Taxa_18S <- read.csv("18S_Taxa-97.csv")
+
+```
