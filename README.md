@@ -1,4 +1,4 @@
-## 16S and 18S Amplicon Sequence Worflow for the *Californiconus californicus* venom microbiome 
+## 16S and 18S Amplicon Sequence Worflow for the *Californiconus californicus* venom microbiome (Ul-Hasan et al.)
 
 This is a microbial amplicon sequence (16S and 18S iTag) data and analyses pipeline for public benefit and usage. 
 
